@@ -51,6 +51,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="IaC-Tz-V4d"/>
                     <connections>
+                        <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
+                        <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
+                        <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureRightSegue" id="JaP-Qo-Dft"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureLeftSegue" id="A1a-UE-BuU"/>
                         <segue destination="00w-vo-eJx" kind="show" id="GJ5-Rm-kU8"/>

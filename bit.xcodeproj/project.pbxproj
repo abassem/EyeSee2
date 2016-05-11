@@ -173,17 +173,7 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = Y8KX7SH47S;
-					};
-					19F20A0D1CE1C5D700F201F5 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
-						TestTargetID = 19F209F91CE1C5D600F201F5;
-					};
-					19F20A181CE1C5D700F201F5 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
-						TestTargetID = 19F209F91CE1C5D600F201F5;
+						DevelopmentTeam = 8854H4CB8T;
 					};
 				};
 			};
@@ -354,7 +344,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FarisRoslan.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -376,7 +366,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FarisRoslan.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -400,25 +390,6 @@
 			buildConfigurations = (
 				19F20A231CE1C5D700F201F5 /* Debug */,
 				19F20A241CE1C5D700F201F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-
-		};
-		19F20A251CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F20A261CE1C5D700F201F5 /* Debug */,
-				19F20A271CE1C5D700F201F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		19F20A281CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F20A291CE1C5D700F201F5 /* Debug */,
-				19F20A2A1CE1C5D700F201F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
