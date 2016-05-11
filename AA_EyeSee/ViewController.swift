@@ -8,16 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    let imagePicker = UIImagePickerController()
     @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-//        self.openCVversionLabel.text = OpenCVWrapper.openCVersionString()
+
+        
+        
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if UIImagePickerController.isCameraDeviceAvailable( UIImagePickerControllerCameraDevice.Front) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        dismissViewControllerAnimated(true, completion: nil)
+        imageView.image = image
+    }
 
 }
 
