@@ -7,31 +7,34 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    let imagePicker = UIImagePickerController()
+class ViewController: UIViewController, OpenCVWrapperDelegate {
+
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-
+//    let videoCamera : CvVideoCamera?
+    var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
-        
+        self.wrapper = OpenCVWrapper()
+        wrapper.delegate = self
+        let test = OpenCVWrapper.openCVersionString
+        print(test)
         super.viewDidLoad()
 
-        
-        
     }
 
-    override func viewDidAppear(animated: Bool) {
-        if UIImagePickerController.isCameraDeviceAvailable( UIImagePickerControllerCameraDevice.Front) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            presentViewController(imagePicker, animated: true, completion: nil)
-        }
+    @IBAction func onStartButtonPressed(sender: AnyObject) {
+        
+        self.wrapper.startCamera(self.imageView);
+    }
+
+    
+    @IBAction func onStopButtonPressed(sender: AnyObject) {
+        self.wrapper.stopCamera();
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        dismissViewControllerAnimated(true, completion: nil)
-        imageView.image = image
-    }
 
 }
 

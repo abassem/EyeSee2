@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,43 +17,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-Rx-eWC">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-tH-9m4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="514" id="oCJ-II-db6"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-j1-8bW">
+                                <rect key="frame" x="108" y="550" width="93" height="30"/>
+                                <state key="normal" title="Start Capture"/>
+                                <connections>
+                                    <action selector="onStartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iwD-eh-P9c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0E-Fo-J67">
+                                <rect key="frame" x="268" y="550" width="91" height="30"/>
+                                <state key="normal" title="Stop Capture"/>
+                                <connections>
+                                    <action selector="onStopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4aL-bD-p5q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OCb-Rx-eWC" secondAttribute="trailing" id="1sO-60-eFh"/>
-                            <constraint firstItem="OCb-Rx-eWC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Xs0-HB-kg2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OCb-Rx-eWC" secondAttribute="bottom" id="jO5-HM-OKR"/>
-                            <constraint firstItem="OCb-Rx-eWC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qFe-gD-G6x"/>
+                            <constraint firstItem="e0E-Fo-J67" firstAttribute="leading" secondItem="lEP-j1-8bW" secondAttribute="trailing" constant="67" id="01E-N2-kwK"/>
+                            <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lEP-j1-8bW" secondAttribute="bottom" constant="20" id="JpB-AF-Rk7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" id="UNx-3c-a96"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UVc-a6-Pwh"/>
+                            <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="dsS-yb-owG"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ks8-Pl-liJ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="OCb-Rx-eWC"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="jO5-HM-OKR"/>
-                                <exclude reference="1sO-60-eFh"/>
-                                <exclude reference="Xs0-HB-kg2"/>
-                                <exclude reference="qFe-gD-G6x"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="OCb-Rx-eWC"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="jO5-HM-OKR"/>
-                                <include reference="1sO-60-eFh"/>
-                                <include reference="Xs0-HB-kg2"/>
-                                <include reference="qFe-gD-G6x"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="IaC-Tz-V4d"/>
                     <connections>
-                        <outlet property="imageView" destination="OCb-Rx-eWC" id="tT7-yL-K7s"/>
+                        <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
+                        <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
+                        <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureRightSegue" id="JaP-Qo-Dft"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureLeftSegue" id="A1a-UE-BuU"/>
                         <segue destination="00w-vo-eJx" kind="show" id="GJ5-Rm-kU8"/>
