@@ -7,12 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <opencv2/highgui/highgui_c.h>
+@class CvVideoCamera;
+
+@protocol OpenCVWrapperDelegate
+@end
 
 @interface OpenCVWrapper : NSObject
 
-
-+(NSString *) openCVersionString;
-
+@property (nonatomic, assign) id <OpenCVWrapperDelegate> delegate;
++ (NSString *) openCVersionString;
+//- (void)createCarName:(NSString*)name withColour(NSString*)colour;
+- (void)startCamera:(UIImageView *) imageView;
+- (void)stopCamera;
 //func 2
 //func 3
 

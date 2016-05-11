@@ -12,28 +12,16 @@
 		19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A011CE1C5D600F201F5 /* Main.storyboard */; };
 		19F20A051CE1C5D700F201F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A041CE1C5D700F201F5 /* Assets.xcassets */; };
 		19F20A081CE1C5D700F201F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */; };
-		19F20A131CE1C5D700F201F5 /* AA_EyeSeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F20A121CE1C5D700F201F5 /* AA_EyeSeeTests.swift */; };
-		19F20A1E1CE1C5D700F201F5 /* AA_EyeSeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F20A1D1CE1C5D700F201F5 /* AA_EyeSeeUITests.swift */; };
 		19F20A321CE1C62000F201F5 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19F20A311CE1C62000F201F5 /* OpenCVWrapper.mm */; };
 		19F20A341CE1DBB500F201F5 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F20A331CE1DBB500F201F5 /* opencv2.framework */; };
+		6ADE55191CE2D1730093AAB2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE55181CE2D1730093AAB2 /* AVFoundation.framework */; };
+		6ADE551B1CE2D5290093AAB2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE551A1CE2D5290093AAB2 /* Accelerate.framework */; };
+		6ADE551D1CE2D5330093AAB2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE551C1CE2D5330093AAB2 /* AssetsLibrary.framework */; };
+		6ADE551F1CE2D53D0093AAB2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE551E1CE2D53D0093AAB2 /* CoreMedia.framework */; };
+		6ADE55211CE2D54B0093AAB2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE55201CE2D54B0093AAB2 /* CoreVideo.framework */; };
+		6ADE55231CE2D5550093AAB2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE55221CE2D5550093AAB2 /* CoreImage.framework */; };
+		6ADE55251CE2D55C0093AAB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE55241CE2D55C0093AAB2 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		19F20A0F1CE1C5D700F201F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19F209F21CE1C5D600F201F5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19F209F91CE1C5D600F201F5;
-			remoteInfo = AA_EyeSee;
-		};
-		19F20A1A1CE1C5D700F201F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19F209F21CE1C5D600F201F5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19F209F91CE1C5D600F201F5;
-			remoteInfo = AA_EyeSee;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,16 +31,21 @@
 		19F20A041CE1C5D700F201F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19F20A071CE1C5D700F201F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19F20A091CE1C5D700F201F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19F20A0E1CE1C5D700F201F5 /* AA_EyeSeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AA_EyeSeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F20A121CE1C5D700F201F5 /* AA_EyeSeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AA_EyeSeeTests.swift; sourceTree = "<group>"; };
 		19F20A141CE1C5D700F201F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19F20A191CE1C5D700F201F5 /* AA_EyeSeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AA_EyeSeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F20A1D1CE1C5D700F201F5 /* AA_EyeSeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AA_EyeSeeUITests.swift; sourceTree = "<group>"; };
 		19F20A1F1CE1C5D700F201F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19F20A2F1CE1C62000F201F5 /* AA_EyeSee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AA_EyeSee-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F20A301CE1C62000F201F5 /* OpenCVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		19F20A311CE1C62000F201F5 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		19F20A331CE1DBB500F201F5 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6ADE55181CE2D1730093AAB2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6ADE551A1CE2D5290093AAB2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6ADE551C1CE2D5330093AAB2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6ADE551E1CE2D53D0093AAB2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6ADE55201CE2D54B0093AAB2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6ADE55221CE2D5550093AAB2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		6ADE55241CE2D55C0093AAB2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,21 +53,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ADE55251CE2D55C0093AAB2 /* QuartzCore.framework in Frameworks */,
+				6ADE55231CE2D5550093AAB2 /* CoreImage.framework in Frameworks */,
+				6ADE55211CE2D54B0093AAB2 /* CoreVideo.framework in Frameworks */,
+				6ADE551F1CE2D53D0093AAB2 /* CoreMedia.framework in Frameworks */,
+				6ADE551D1CE2D5330093AAB2 /* AssetsLibrary.framework in Frameworks */,
+				6ADE551B1CE2D5290093AAB2 /* Accelerate.framework in Frameworks */,
+				6ADE55191CE2D1730093AAB2 /* AVFoundation.framework in Frameworks */,
 				19F20A341CE1DBB500F201F5 /* opencv2.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F20A0B1CE1C5D700F201F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F20A161CE1C5D700F201F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +70,13 @@
 		19F209F11CE1C5D600F201F5 = {
 			isa = PBXGroup;
 			children = (
+				6ADE55241CE2D55C0093AAB2 /* QuartzCore.framework */,
+				6ADE55221CE2D5550093AAB2 /* CoreImage.framework */,
+				6ADE55201CE2D54B0093AAB2 /* CoreVideo.framework */,
+				6ADE551E1CE2D53D0093AAB2 /* CoreMedia.framework */,
+				6ADE551C1CE2D5330093AAB2 /* AssetsLibrary.framework */,
+				6ADE551A1CE2D5290093AAB2 /* Accelerate.framework */,
+				6ADE55181CE2D1730093AAB2 /* AVFoundation.framework */,
 				19F20A301CE1C62000F201F5 /* OpenCVWrapper.h */,
 				19F20A311CE1C62000F201F5 /* OpenCVWrapper.mm */,
 				19F209FC1CE1C5D600F201F5 /* AA_EyeSee */,
@@ -98,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */,
-				19F20A0E1CE1C5D700F201F5 /* AA_EyeSeeTests.xctest */,
-				19F20A191CE1C5D700F201F5 /* AA_EyeSeeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,42 +147,6 @@
 			productReference = 19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		19F20A0D1CE1C5D700F201F5 /* AA_EyeSeeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19F20A251CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeTests" */;
-			buildPhases = (
-				19F20A0A1CE1C5D700F201F5 /* Sources */,
-				19F20A0B1CE1C5D700F201F5 /* Frameworks */,
-				19F20A0C1CE1C5D700F201F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19F20A101CE1C5D700F201F5 /* PBXTargetDependency */,
-			);
-			name = AA_EyeSeeTests;
-			productName = AA_EyeSeeTests;
-			productReference = 19F20A0E1CE1C5D700F201F5 /* AA_EyeSeeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		19F20A181CE1C5D700F201F5 /* AA_EyeSeeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19F20A281CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeUITests" */;
-			buildPhases = (
-				19F20A151CE1C5D700F201F5 /* Sources */,
-				19F20A161CE1C5D700F201F5 /* Frameworks */,
-				19F20A171CE1C5D700F201F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19F20A1B1CE1C5D700F201F5 /* PBXTargetDependency */,
-			);
-			name = AA_EyeSeeUITests;
-			productName = AA_EyeSeeUITests;
-			productReference = 19F20A191CE1C5D700F201F5 /* AA_EyeSeeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,21 +159,11 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
-					};
-					19F20A0D1CE1C5D700F201F5 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
-						TestTargetID = 19F209F91CE1C5D600F201F5;
-					};
-					19F20A181CE1C5D700F201F5 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
-						TestTargetID = 19F209F91CE1C5D600F201F5;
+						DevelopmentTeam = 8854H4CB8T;
 					};
 				};
 			};
-			buildConfigurationList = 19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "AA_EyeSee" */;
+			buildConfigurationList = 19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "bit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,8 +177,6 @@
 			projectRoot = "";
 			targets = (
 				19F209F91CE1C5D600F201F5 /* AA_EyeSee */,
-				19F20A0D1CE1C5D700F201F5 /* AA_EyeSeeTests */,
-				19F20A181CE1C5D700F201F5 /* AA_EyeSeeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,20 +189,6 @@
 				19F20A081CE1C5D700F201F5 /* LaunchScreen.storyboard in Resources */,
 				19F20A051CE1C5D700F201F5 /* Assets.xcassets in Resources */,
 				19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F20A0C1CE1C5D700F201F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F20A171CE1C5D700F201F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,36 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19F20A0A1CE1C5D700F201F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19F20A131CE1C5D700F201F5 /* AA_EyeSeeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F20A151CE1C5D700F201F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19F20A1E1CE1C5D700F201F5 /* AA_EyeSeeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		19F20A101CE1C5D700F201F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19F209F91CE1C5D600F201F5 /* AA_EyeSee */;
-			targetProxy = 19F20A0F1CE1C5D700F201F5 /* PBXContainerItemProxy */;
-		};
-		19F20A1B1CE1C5D700F201F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19F209F91CE1C5D600F201F5 /* AA_EyeSee */;
-			targetProxy = 19F20A1A1CE1C5D700F201F5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19F20A011CE1C5D600F201F5 /* Main.storyboard */ = {
@@ -348,6 +248,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -394,6 +295,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -417,14 +319,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AA_EyeSee",
 				);
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -435,68 +341,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AA_EyeSee",
 				);
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		19F20A261CE1C5D700F201F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AA_EyeSeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSeeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AA_EyeSee.app/AA_EyeSee";
-			};
-			name = Debug;
-		};
-		19F20A271CE1C5D700F201F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AA_EyeSeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSeeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AA_EyeSee.app/AA_EyeSee";
-			};
-			name = Release;
-		};
-		19F20A291CE1C5D700F201F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AA_EyeSeeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSeeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AA_EyeSee;
-			};
-			name = Debug;
-		};
-		19F20A2A1CE1C5D700F201F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AA_EyeSeeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSeeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AA_EyeSee;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "AA_EyeSee" */ = {
+		19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "bit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19F20A201CE1C5D700F201F5 /* Debug */,
@@ -512,22 +376,7 @@
 				19F20A241CE1C5D700F201F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		19F20A251CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F20A261CE1C5D700F201F5 /* Debug */,
-				19F20A271CE1C5D700F201F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		19F20A281CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F20A291CE1C5D700F201F5 /* Debug */,
-				19F20A2A1CE1C5D700F201F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

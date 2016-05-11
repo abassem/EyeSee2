@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, OpenCVWrapperDelegate {
 
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-
+//    let videoCamera : CvVideoCamera?
+    var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
-        
+        self.wrapper = OpenCVWrapper()
+        wrapper.delegate = self
+        let test = OpenCVWrapper.openCVersionString
+        print(test)
         super.viewDidLoad()
-//        self.openCVversionLabel.text = OpenCVWrapper.openCVersionString()
     }
 
+    @IBAction func onStartButtonPressed(sender: AnyObject) {
+        
+        self.wrapper.startCamera(self.imageView);
+    }
+
+    
+    @IBAction func onStopButtonPressed(sender: AnyObject) {
+        self.wrapper.stopCamera();
+    }
+    
 
 }
 
