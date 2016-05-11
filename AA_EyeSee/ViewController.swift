@@ -22,6 +22,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate {
         let test = OpenCVWrapper.openCVersionString
         print(test)
         super.viewDidLoad()
+
     }
 
     @IBAction func onStartButtonPressed(sender: AnyObject) {

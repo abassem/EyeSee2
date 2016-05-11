@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B152FC1CE30DD0008FF070 /* IdentifiedValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */; };
+		18B152FE1CE30DDF008FF070 /* UnidentifiedValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
 		19F20A001CE1C5D600F201F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* ViewController.swift */; };
 		19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A011CE1C5D600F201F5 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiedValueViewController.swift; sourceTree = "<group>"; };
+		18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnidentifiedValueViewController.swift; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F209FF1CE1C5D600F201F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18B152FA1CE30DB8008FF070 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				19F209FF1CE1C5D600F201F5 /* ViewController.swift */,
+				18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */,
+				18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */,
+				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		19F209F11CE1C5D600F201F5 = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +113,9 @@
 		19F209FC1CE1C5D600F201F5 /* AA_EyeSee */ = {
 			isa = PBXGroup;
 			children = (
+				18B152FA1CE30DB8008FF070 /* ViewController */,
 				19F20A331CE1DBB500F201F5 /* opencv2.framework */,
 				19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */,
-				19F209FF1CE1C5D600F201F5 /* ViewController.swift */,
-				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 				19F20A041CE1C5D700F201F5 /* Assets.xcassets */,
 				19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */,
 				19F20A091CE1C5D700F201F5 /* Info.plist */,
@@ -159,7 +173,17 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8854H4CB8T;
+						DevelopmentTeam = Y8KX7SH47S;
+					};
+					19F20A0D1CE1C5D700F201F5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VWX3JCB956;
+						TestTargetID = 19F209F91CE1C5D600F201F5;
+					};
+					19F20A181CE1C5D700F201F5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VWX3JCB956;
+						TestTargetID = 19F209F91CE1C5D600F201F5;
 					};
 				};
 			};
@@ -202,6 +226,8 @@
 				19F20A001CE1C5D600F201F5 /* ViewController.swift in Sources */,
 				19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */,
 				19F20A321CE1C62000F201F5 /* OpenCVWrapper.mm in Sources */,
+				18B152FE1CE30DDF008FF070 /* UnidentifiedValueViewController.swift in Sources */,
+				18B152FC1CE30DD0008FF070 /* IdentifiedValueViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +354,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -350,7 +376,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdoassem.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -374,6 +400,25 @@
 			buildConfigurations = (
 				19F20A231CE1C5D700F201F5 /* Debug */,
 				19F20A241CE1C5D700F201F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+
+		};
+		19F20A251CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F20A261CE1C5D700F201F5 /* Debug */,
+				19F20A271CE1C5D700F201F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19F20A281CE1C5D700F201F5 /* Build configuration list for PBXNativeTarget "AA_EyeSeeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F20A291CE1C5D700F201F5 /* Debug */,
+				19F20A2A1CE1C5D700F201F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
