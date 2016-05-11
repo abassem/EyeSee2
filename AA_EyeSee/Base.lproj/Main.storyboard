@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1137" y="400"/>
         </scene>
-        <!--View Controller-->
+        <!--Identified Value View Controller-->
         <scene sceneID="uXw-y4-epM">
             <objects>
-                <viewController id="cNB-Mq-Lbh" sceneMemberID="viewController">
+                <viewController id="cNB-Mq-Lbh" customClass="IdentifiedValueViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0hM-r3-Nff"/>
                         <viewControllerLayoutGuide type="bottom" id="QMy-kQ-Rw3"/>
@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="707" y="1212"/>
         </scene>
-        <!--View Controller-->
+        <!--Unidentified Value View Controller-->
         <scene sceneID="dgX-wl-DZN">
             <objects>
-                <viewController id="00w-vo-eJx" sceneMemberID="viewController">
+                <viewController id="00w-vo-eJx" customClass="UnidentifiedValueViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hsH-1P-Hdv"/>
                         <viewControllerLayoutGuide type="bottom" id="bSf-2s-uDB"/>
