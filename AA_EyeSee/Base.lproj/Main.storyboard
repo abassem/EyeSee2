@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtJ-8J-zPo">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-tH-9m4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
                                 <constraints>
@@ -47,56 +44,41 @@
                                     <action selector="onStopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4aL-bD-p5q"/>
                                 </connections>
                             </button>
+                            <view opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTN-pb-gJT" customClass="GestureRecognizer" customModule="AA_EyeSee" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="leading" secondItem="lEP-j1-8bW" secondAttribute="trailing" constant="67" id="01E-N2-kwK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JTN-pb-gJT" secondAttribute="trailing" constant="184" id="0hl-Y0-SMF"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
+                            <constraint firstItem="JTN-pb-gJT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FiL-AV-C7Z"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lEP-j1-8bW" secondAttribute="bottom" constant="20" id="JpB-AF-Rk7"/>
-                            <constraint firstAttribute="trailing" secondItem="dtJ-8J-zPo" secondAttribute="trailing" id="JuY-6d-kPh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dtJ-8J-zPo" secondAttribute="bottom" constant="47" id="Qxl-6K-86L"/>
+                            <constraint firstAttribute="trailing" secondItem="JTN-pb-gJT" secondAttribute="trailing" id="PKK-32-inX"/>
+                            <constraint firstItem="JTN-pb-gJT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="136" id="QoG-Hm-lUU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" id="UNx-3c-a96"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UVc-a6-Pwh"/>
-                            <constraint firstItem="dtJ-8J-zPo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bEa-uM-wsj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JTN-pb-gJT" secondAttribute="bottom" id="VRI-MN-VnX"/>
+                            <constraint firstItem="JTN-pb-gJT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wyx-Mq-f2J"/>
                             <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="dsS-yb-owG"/>
-                            <constraint firstItem="dtJ-8J-zPo" firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="fkx-2r-265"/>
-                            <constraint firstItem="dtJ-8J-zPo" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="top" id="jK4-SP-JfB"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ks8-Pl-liJ"/>
-                            <constraint firstItem="dtJ-8J-zPo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lZS-XO-Luo"/>
-                            <constraint firstItem="dtJ-8J-zPo" firstAttribute="leading" secondItem="KAe-tH-9m4" secondAttribute="leading" id="vc4-YG-Org"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dtJ-8J-zPo"/>
-                            </mask>
                             <mask key="constraints">
-                                <exclude reference="Qxl-6K-86L"/>
-                                <exclude reference="JuY-6d-kPh"/>
-                                <exclude reference="bEa-uM-wsj"/>
-                                <exclude reference="fkx-2r-265"/>
-                                <exclude reference="jK4-SP-JfB"/>
-                                <exclude reference="lZS-XO-Luo"/>
-                                <exclude reference="vc4-YG-Org"/>
+                                <exclude reference="0hl-Y0-SMF"/>
+                                <exclude reference="QoG-Hm-lUU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="dtJ-8J-zPo"/>
-                            </mask>
                             <mask key="constraints">
-                                <exclude reference="dsS-yb-owG"/>
-                                <exclude reference="JpB-AF-Rk7"/>
-                                <include reference="Qxl-6K-86L"/>
-                                <exclude reference="UNx-3c-a96"/>
-                                <include reference="JuY-6d-kPh"/>
-                                <include reference="bEa-uM-wsj"/>
-                                <include reference="fkx-2r-265"/>
-                                <include reference="jK4-SP-JfB"/>
-                                <include reference="lZS-XO-Luo"/>
-                                <include reference="vc4-YG-Org"/>
                                 <exclude reference="9Ld-3L-HYu"/>
                                 <exclude reference="UVc-a6-Pwh"/>
                                 <exclude reference="ks8-Pl-liJ"/>
+                                <exclude reference="dsS-yb-owG"/>
+                                <exclude reference="JpB-AF-Rk7"/>
+                                <exclude reference="UNx-3c-a96"/>
                                 <exclude reference="01E-N2-kwK"/>
                             </mask>
                         </variation>
@@ -106,7 +88,7 @@
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
                         <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
-                        <outlet property="transpartentView" destination="dtJ-8J-zPo" id="iMa-dk-hnx"/>
+                        <outlet property="touchView" destination="JTN-pb-gJT" id="Xp4-QS-Amx"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureRightSegue" id="JaP-Qo-Dft"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureLeftSegue" id="A1a-UE-BuU"/>
                         <segue destination="00w-vo-eJx" kind="show" identifier="blankLeftGesture" id="GJ5-Rm-kU8"/>
@@ -128,8 +110,23 @@
                     <view key="view" contentMode="scaleToFill" id="h7n-JE-SVb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8e-FF-319" customClass="GestureRecognizer" customModule="AA_EyeSee" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X8e-FF-319" firstAttribute="leading" secondItem="h7n-JE-SVb" secondAttribute="leading" id="9BA-wY-YOa"/>
+                            <constraint firstItem="QMy-kQ-Rw3" firstAttribute="top" secondItem="X8e-FF-319" secondAttribute="bottom" id="OU7-hR-dK0"/>
+                            <constraint firstItem="X8e-FF-319" firstAttribute="top" secondItem="0hM-r3-Nff" secondAttribute="bottom" id="lfo-Dg-4KK"/>
+                            <constraint firstAttribute="trailing" secondItem="X8e-FF-319" secondAttribute="trailing" id="s2o-Ef-iF1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="touchyView" destination="X8e-FF-319" id="cgw-FA-47p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owV-oe-MJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,8 +153,18 @@
                                     <rect key="frame" x="93" y="289" width="215" height="21"/>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A14-UU-WTk" customClass="GestureRecognizer" customModule="AA_EyeSee" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A14-UU-WTk" firstAttribute="top" secondItem="hsH-1P-Hdv" secondAttribute="bottom" id="QcY-fd-qr4"/>
+                            <constraint firstItem="bSf-2s-uDB" firstAttribute="top" secondItem="A14-UU-WTk" secondAttribute="bottom" id="ZIq-Iu-dRf"/>
+                            <constraint firstItem="A14-UU-WTk" firstAttribute="leading" secondItem="3Fe-65-vb1" secondAttribute="leading" id="dmt-VO-YGQ"/>
+                            <constraint firstAttribute="trailing" secondItem="A14-UU-WTk" secondAttribute="trailing" id="kSz-cr-LbB"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="NKZ-aN-J2G"/>
@@ -169,10 +176,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="touchyView" destination="A14-UU-WTk" id="ab2-Zy-5ee"/>
+                        <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureLeftySegue" id="po3-4d-PHd"/>
+                        <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureRightySegue" id="kUG-nj-mcE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e18-aM-Q02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="1212"/>
+            <point key="canvasLocation" x="1381" y="1212"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XfB-Bo-P5N">
@@ -194,7 +206,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="A1a-UE-BuU"/>
-        <segue reference="GJ5-Rm-kU8"/>
+        <segue reference="e6V-On-ell"/>
+        <segue reference="po3-4d-PHd"/>
     </inferredMetricsTieBreakers>
 </document>

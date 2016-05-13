@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180AC48A1CE4765500641E02 /* DBPathRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AC4881CE4765500641E02 /* DBPathRecognizer.swift */; };
+		180AC48B1CE4765500641E02 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AC4891CE4765500641E02 /* GestureRecognizer.swift */; };
 		18B152FC1CE30DD0008FF070 /* IdentifiedValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */; };
 		18B152FE1CE30DDF008FF070 /* UnidentifiedValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180AC4881CE4765500641E02 /* DBPathRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBPathRecognizer.swift; sourceTree = "<group>"; };
+		180AC4891CE4765500641E02 /* GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
 		18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiedValueViewController.swift; sourceTree = "<group>"; };
 		18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnidentifiedValueViewController.swift; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,13 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180AC4871CE4764100641E02 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				180AC4881CE4765500641E02 /* DBPathRecognizer.swift */,
+				180AC4891CE4765500641E02 /* GestureRecognizer.swift */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		18B152FA1CE30DB8008FF070 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				19F209FF1CE1C5D600F201F5 /* ViewController.swift */,
 				18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */,
 				18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */,
-				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -117,8 +129,10 @@
 		19F209FC1CE1C5D600F201F5 /* AA_EyeSee */ = {
 			isa = PBXGroup;
 			children = (
+				180AC4871CE4764100641E02 /* Class */,
 				6A629BB81CE4547E00FFB34B /* opencv2.framework */,
 				18B152FA1CE30DB8008FF070 /* ViewController */,
+				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 				19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */,
 				19F20A041CE1C5D700F201F5 /* Assets.xcassets */,
 				19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */,
@@ -177,7 +191,7 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
+						DevelopmentTeam = Y8KX7SH47S;
 					};
 				};
 			};
@@ -217,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180AC48A1CE4765500641E02 /* DBPathRecognizer.swift in Sources */,
 				19F20A001CE1C5D600F201F5 /* ViewController.swift in Sources */,
 				19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */,
+				180AC48B1CE4765500641E02 /* GestureRecognizer.swift in Sources */,
 				19F20A321CE1C62000F201F5 /* OpenCVWrapper.mm in Sources */,
 				18B152FE1CE30DDF008FF070 /* UnidentifiedValueViewController.swift in Sources */,
 				18B152FC1CE30DD0008FF070 /* IdentifiedValueViewController.swift in Sources */,
@@ -348,7 +364,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdo.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -370,7 +386,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abdo.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoanneLim.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
