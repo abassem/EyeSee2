@@ -9,12 +9,15 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, OpenCVWrapperDelegate {
+class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
 
     @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var touchView: GestureRecognizer!
+    
+    
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
@@ -23,16 +26,9 @@ class ViewController: UIViewController, OpenCVWrapperDelegate {
         let test = OpenCVWrapper.openCVersionString
         print(test)
         super.viewDidLoad()
-        self.transpartentView.backgroundColor = UIColor.clearColor()
         
-        //Swipe gestures initialization
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.handleSwipe(_:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        self.transpartentView.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.handleSwipe(_:)))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.transpartentView.addGestureRecognizer(swipeLeft)
+        self.touchView.delegate = self
+
 
     }
  //delete after development (start camera automatically)
@@ -47,23 +43,16 @@ class ViewController: UIViewController, OpenCVWrapperDelegate {
     }
     
     //handle swipe guestures
-    func handleSwipe(gesture: UIGestureRecognizer) {
-        if let myGesture = gesture as? UISwipeGestureRecognizer{
-            switch myGesture.direction {
-            case UISwipeGestureRecognizerDirection.Left:
-                performSegueWithIdentifier("blankLeftGesture", sender: self)
-                print ("Left")
-                
-                
-            case UISwipeGestureRecognizerDirection.Right:
-                performSegueWithIdentifier("blankRightGesture", sender: self)
-                print ("Right")
-                
-                
-                
-                
-            default:
-                break
+    func swiped(gesture: UIGestureRecognizer) {
+        if gesture.isKindOfClass(UISwipeGestureRecognizer){
+            if let gesture = gesture as? UISwipeGestureRecognizer{
+                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 2 {
+                    self.performSegueWithIdentifier("gestureLeftSegue", sender: nil)
+                    print ("wartttt")
+                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 2 {
+                    self.performSegueWithIdentifier("gestureRightSegue", sender: nil)
+                    print ("helloooo")
+                }
             }
         }
     }
