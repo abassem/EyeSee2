@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 protocol GestureRecognizerDelegate {
     func swiped(gesture: UIGestureRecognizer)
 }
 
 class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
+    
+
+    // Retreive the managedObjectContext from AppDelegate
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var value = [NSManagedObject]()
     
     var delegate: GestureRecognizerDelegate?
     
@@ -69,7 +76,26 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
             if let letters =  gesture!.datas as? String{
                 if letters == "O"{
                     
+//                    // Initialize Fetch Request
+//                    let fetchRequest = NSFetchRequest()
+//                    
+//                    // Create Entity Description
+//                    let entityDescription = NSEntityDescription.entityForName("Wallet", inManagedObjectContext: self.managedObjectContext)
+//                    
+//                    // Configure Fetch Request
+//                    fetchRequest.entity = entityDescription
+//                    
+//                    do {
+//                        let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+//                        print(result)
+//                        
+//                    } catch {
+//                        let fetchError = error as NSError
+//                        print(fetchError)
+//                    }
+
                     print ("counterclockwise")
+                    
                 }else if letters == "C"{
                     print ("clockwise")
                 
@@ -116,7 +142,6 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
     }
     
     func handleSwipe(gesture: UIGestureRecognizer){
-        print("urnning")
         self.delegate?.swiped(gesture)
     }
 }
