@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,12 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-tH-9m4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="514" id="oCJ-II-db6"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-j1-8bW">
                                 <rect key="frame" x="108" y="550" width="93" height="30"/>
                                 <state key="normal" title="Start Capture"/>
@@ -37,21 +32,59 @@
                                     <action selector="onStopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4aL-bD-p5q"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igF-DF-est">
+                                <rect key="frame" x="0.0" y="256" width="600" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="301" id="lQR-ap-04j"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-tH-9m4">
+                                <rect key="frame" x="0.0" y="64" width="600" height="192"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="BAl-ri-hWo"/>
+                                    <constraint firstAttribute="height" constant="192" id="CZT-nx-1Ys"/>
+                                    <constraint firstAttribute="height" constant="192" id="ff7-S7-Zf3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BAl-ri-hWo"/>
+                                        <exclude reference="ff7-S7-Zf3"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="leading" secondItem="lEP-j1-8bW" secondAttribute="trailing" constant="67" id="01E-N2-kwK"/>
-                            <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
+                            <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="4hs-oZ-1FR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KAe-tH-9m4" secondAttribute="trailing" constant="-20" id="BGY-xo-RqX"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DMc-AV-KxO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lEP-j1-8bW" secondAttribute="bottom" constant="20" id="JpB-AF-Rk7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="igF-DF-est" secondAttribute="trailing" constant="-20" id="Teg-O1-OyY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" id="UNx-3c-a96"/>
-                            <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UVc-a6-Pwh"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X3c-ht-cEi"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="by3-7X-AVR"/>
                             <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="dsS-yb-owG"/>
-                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ks8-Pl-liJ"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="i41-vK-v1j"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="puE-XF-HhY"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vT7-Jp-Nnh"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="vmx-nL-Hsz"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wtL-DB-0eH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4hs-oZ-1FR"/>
+                                <exclude reference="X3c-ht-cEi"/>
+                                <exclude reference="vT7-Jp-Nnh"/>
+                                <exclude reference="by3-7X-AVR"/>
+                                <exclude reference="puE-XF-HhY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="IaC-Tz-V4d"/>
                     <connections>
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
+                        <outlet property="mainImageView" destination="igF-DF-est" id="Dau-ry-Gdj"/>
                         <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <segue destination="cNB-Mq-Lbh" kind="show" identifier="gestureRightSegue" id="JaP-Qo-Dft"/>

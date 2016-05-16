@@ -20,6 +20,7 @@
 
 @interface OpenCVWrapper() <CvVideoCameraDelegate>
 @property CvVideoCamera *videoCamera;
+@property UIImageView *mainImageView;
 @end
 
 @implementation OpenCVWrapper
@@ -30,16 +31,18 @@
     return [NSString stringWithFormat:@"openCV Version %s", CV_VERSION];
 }
 
-- (void)startCamera:(UIImageView*) imageView{
+- (void)startCamera:(UIImageView*)imageView alt:(UIImageView*) mainImageView{
     if (!self.videoCamera) {
+        
         self.videoCamera = [[CvVideoCamera alloc] initWithParentView:imageView];
+        self.mainImageView = mainImageView;
         self.videoCamera.delegate = self;
         self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
         self.videoCamera.defaultAVCaptureSessionPreset =
         AVCaptureSessionPreset640x480;
         self.videoCamera.defaultAVCaptureVideoOrientation =
         AVCaptureVideoOrientationPortrait;
-        self.videoCamera.defaultFPS = 30;
+        self.videoCamera.defaultFPS = 1;
     }
     [self.videoCamera start];
     
@@ -51,6 +54,7 @@
 
 - (void)processImage:(cv::Mat &)image{
     UIImage *capturedImage = [self UIImageFromCVMat:image];
+    
     [self checkImageWorks:capturedImage];
 }
 
@@ -124,9 +128,10 @@
     cv::SurfDescriptorExtractor surfExtractor;
     cv::FlannBasedMatcher flannMatcher;
     cv::vector<cv::DMatch> matches;
+    float minimumDistance;
     int minHessian;
     double minDistMultiplier;
-    
+    minimumDistance = 0.2;
     minHessian = 400;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);
@@ -138,10 +143,9 @@
     sceneImageMat = cv::Mat(sceneImage.size.height, sceneImage.size.width, CV_8UC1);
     objectImageMat1 = cv::Mat(objectImage1.size.height, objectImage1.size.width, CV_8UC1);
     
-    cv::Mat scentImageArray [1] = { [self cvMatFromUIImage:inputImage] };
     
-    cv::cvtColor(scentImageArray, sceneImageMat, CV_RGB2GRAY);
-    cv::cvtColor([objectImage1 CVMat], objectImageMat1, CV_RGB2GRAY);
+    cv::cvtColor([self cvMatFromUIImage:sceneImage], sceneImageMat, CV_RGB2GRAY);
+    cv::cvtColor([self cvMatFromUIImage:objectImage1], objectImageMat1, CV_RGB2GRAY);
     
     if (!sceneImageMat.data || !objectImageMat1.data) {
         NSLog(@"NO DATA");
@@ -154,7 +158,19 @@
     surfExtractor.compute(objectImageMat1, objectKeypoints1, objectDescriptors1);
     NSLog(@"objectDescriptor is type of : %s", typeid(objectDescriptors1).name());
     NSLog(@"sceneDescriptors is type of : %s", typeid(sceneDescriptors).name());
+    if(objectDescriptors1.type() != CV_32F) {
+        objectDescriptors1.convertTo(objectDescriptors1, CV_32F);
+    }
     
+    if(sceneDescriptors.type() != CV_32F) {
+        sceneDescriptors.convertTo(sceneDescriptors, CV_32F);
+    }
+    if ( objectDescriptors1.empty() ){
+        return;
+    }
+    if ( sceneDescriptors.empty() ){
+        return;
+    }
     flannMatcher.match(objectDescriptors1, sceneDescriptors, matches);
     
     double max_dist = 0; double min_dist = 100;
@@ -169,7 +185,7 @@
     cv::vector<cv::DMatch> goodMatches;
     for( int i = 0; i < objectDescriptors1.rows; i++ )
     {
-        if( matches[i].distance < minDistMultiplier*min_dist )
+        if( matches[i].distance < fmax(minDistMultiplier*min_dist, minimumDistance) )
         {
             goodMatches.push_back( matches[i]);
         }
@@ -193,14 +209,14 @@
     cv::vector<uchar> outputMask;
     NSLog(@"Object size: %lu", obj.size());
     NSLog(@"Scene size: %lu", scn.size());
-    if(obj.size() != 0 && scn.size() != 0) {
+
     cv::Mat homography = cv::findHomography(obj, scn, CV_RANSAC, 3, outputMask);
     int inlierCounter = 0;
     for (int i = 0; i < outputMask.size(); i++) {
         if (outputMask[i] == 1) {
             inlierCounter++;
         }
-    }
+    
     NSLog(@"Inliers percentage: %d", (int)(((float)inlierCounter / (float)outputMask.size()) * 100));
     
     cv::vector<cv::Point2f> objCorners(4);
@@ -218,6 +234,11 @@
     cv::line( imageMatches, scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
     cv::line( imageMatches, scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
     }
-    //[mainImageView setImage:[UIImage imageWithCVMat:imageMatches]];
+    UIImage *pointImage = [self UIImageFromCVMat:imageMatches];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self.mainImageView setImage:pointImage];
+    });
+    
 }
 @end

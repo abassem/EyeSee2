@@ -14,9 +14,11 @@ class ViewController: UIViewController, OpenCVWrapperDelegate {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var mainImageView: UIImageView!
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
+//        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
         let test = OpenCVWrapper.openCVersionString
@@ -26,8 +28,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate {
     }
 
     @IBAction func onStartButtonPressed(sender: AnyObject) {
-        
-        self.wrapper.startCamera(self.imageView);
+        self.wrapper.startCamera(self.imageView, alt: mainImageView)
     }
 
     
