@@ -19,12 +19,7 @@
 
 @property (nonatomic, assign) id <OpenCVWrapperDelegate> delegate;
 + (NSString *) openCVersionString;
-//- (void)createCarName:(NSString*)name withColour(NSString*)colour;
-- (void)startCamera:(UIImageView *) imageView;
+- (void)startCamera:(UIImageView*)imageView alt:(UIImageView*) mainImageView;
 - (void)stopCamera;
-//func 2
-//func 3
-
-//func4
 
 @end

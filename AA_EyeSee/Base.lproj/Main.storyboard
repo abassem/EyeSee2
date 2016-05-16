@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CKq-MH-4b3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -63,7 +63,11 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JTN-pb-gJT" secondAttribute="bottom" id="VRI-MN-VnX"/>
                             <constraint firstItem="JTN-pb-gJT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wyx-Mq-f2J"/>
                             <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="dsS-yb-owG"/>
-                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ks8-Pl-liJ"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="i41-vK-v1j"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="puE-XF-HhY"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vT7-Jp-Nnh"/>
+                            <constraint firstItem="igF-DF-est" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="vmx-nL-Hsz"/>
+                            <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wtL-DB-0eH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -86,6 +90,7 @@
                     <navigationItem key="navigationItem" id="IaC-Tz-V4d"/>
                     <connections>
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
+                        <outlet property="mainImageView" destination="igF-DF-est" id="Dau-ry-Gdj"/>
                         <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <outlet property="touchView" destination="JTN-pb-gJT" id="Xp4-QS-Amx"/>

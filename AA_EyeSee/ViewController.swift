@@ -15,12 +15,17 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+<<<<<<< HEAD
+    @IBOutlet weak var mainImageView: UIImageView!
+=======
     @IBOutlet weak var touchView: GestureRecognizer!
     
     
+>>>>>>> a22401b0ae0e187fb66e125bf5067d6324ccceda
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
+//        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
         let test = OpenCVWrapper.openCVersionString
@@ -33,8 +38,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     }
  //delete after development (start camera automatically)
     @IBAction func onStartButtonPressed(sender: AnyObject) {
-        
-        self.wrapper.startCamera(self.imageView);
+        self.wrapper.startCamera(self.imageView, alt: mainImageView)
     }
 
     //delete after development (start camera automatically)
