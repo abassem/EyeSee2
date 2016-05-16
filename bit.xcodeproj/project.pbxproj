@@ -80,7 +80,6 @@
 				19F209FF1CE1C5D600F201F5 /* ViewController.swift */,
 				18B152FB1CE30DD0008FF070 /* IdentifiedValueViewController.swift */,
 				18B152FD1CE30DDF008FF070 /* UnidentifiedValueViewController.swift */,
-				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -120,6 +119,7 @@
 				6A629BB81CE4547E00FFB34B /* opencv2.framework */,
 				18B152FA1CE30DB8008FF070 /* ViewController */,
 				19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */,
+				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 				19F20A041CE1C5D700F201F5 /* Assets.xcassets */,
 				19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */,
 				19F20A091CE1C5D700F201F5 /* Info.plist */,
