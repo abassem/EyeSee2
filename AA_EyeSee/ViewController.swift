@@ -15,13 +15,9 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-<<<<<<< HEAD
     @IBOutlet weak var mainImageView: UIImageView!
-=======
     @IBOutlet weak var touchView: GestureRecognizer!
     
-    
->>>>>>> a22401b0ae0e187fb66e125bf5067d6324ccceda
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
