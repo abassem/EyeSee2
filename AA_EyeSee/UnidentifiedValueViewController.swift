@@ -8,12 +8,14 @@
 
 import UIKit
 
-class UnidentifiedValueViewController: UIViewController {
+class UnidentifiedValueViewController: UIViewController,GestureRecognizerDelegate {
+    @IBOutlet weak var touchyView: GestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.touchyView.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +23,22 @@ class UnidentifiedValueViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func swiped(gesture: UIGestureRecognizer) {
+        if gesture.isKindOfClass(UISwipeGestureRecognizer){
+            if let gesture = gesture as? UISwipeGestureRecognizer{
+                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 2 {
+                    self.performSegueWithIdentifier("gestureLeftySegue", sender: nil)
+                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 2 {
+                    self.performSegueWithIdentifier("gestureRightySegue", sender: nil)
+                } else if gesture.direction == .Down && gesture.numberOfTouchesRequired == 2 {
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    
+                    let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("main") as! ViewController
+                    self.presentViewController(nextViewController, animated:true, completion:nil)
+                }
+            }
+        }
     }
-    */
-
+    
+    
 }

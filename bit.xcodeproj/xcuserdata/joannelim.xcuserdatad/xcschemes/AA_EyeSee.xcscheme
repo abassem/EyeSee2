@@ -17,7 +17,7 @@
                BlueprintIdentifier = "19F209F91CE1C5D600F201F5"
                BuildableName = "AA_EyeSee.app"
                BlueprintName = "AA_EyeSee"
-               ReferencedContainer = "container:AA_EyeSee.xcodeproj">
+               ReferencedContainer = "container:bit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19F20A0D1CE1C5D700F201F5"
-               BuildableName = "AA_EyeSeeTests.xctest"
-               BlueprintName = "AA_EyeSeeTests"
-               ReferencedContainer = "container:AA_EyeSee.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19F20A181CE1C5D700F201F5"
-               BuildableName = "AA_EyeSeeUITests.xctest"
-               BlueprintName = "AA_EyeSeeUITests"
-               ReferencedContainer = "container:AA_EyeSee.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -97,7 +77,7 @@
             BlueprintIdentifier = "19F209F91CE1C5D600F201F5"
             BuildableName = "AA_EyeSee.app"
             BlueprintName = "AA_EyeSee"
-            ReferencedContainer = "container:AA_EyeSee.xcodeproj">
+            ReferencedContainer = "container:bit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
