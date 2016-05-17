@@ -18,10 +18,6 @@ class UnidentifiedValueViewController: UIViewController,GestureRecognizerDelegat
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func swiped(gesture: UIGestureRecognizer) {
         if gesture.isKindOfClass(UISwipeGestureRecognizer){

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 protocol GestureRecognizerDelegate {
     func swiped(gesture: UIGestureRecognizer)
@@ -19,7 +18,6 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
     // Retreive the managedObjectContext from AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var value = [NSManagedObject]()
     
     var delegate: GestureRecognizerDelegate?
     
