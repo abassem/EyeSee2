@@ -256,7 +256,7 @@ public struct Path {
         points.append(point)
     }
     
-    mutating public func addPointFromRaw(var rawDatas:[Int]){
+    mutating public func addPointFromRaw( rawDatas:[Int]){
         var i = 0;
         var _:PathPoint
         

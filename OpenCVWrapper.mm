@@ -31,9 +31,12 @@
     return [NSString stringWithFormat:@"openCV Version %s", CV_VERSION];
 }
 
+
+//Starts Camera (image View and MainImage VIew)
 - (void)startCamera:(UIImageView*)imageView alt:(UIImageView*) mainImageView{
     if (!self.videoCamera) {
         
+        //Initiate VideoCamera
         self.videoCamera = [[CvVideoCamera alloc] initWithParentView:imageView];
         self.mainImageView = mainImageView;
         self.videoCamera.delegate = self;
@@ -42,21 +45,29 @@
         AVCaptureSessionPreset640x480;
         self.videoCamera.defaultAVCaptureVideoOrientation =
         AVCaptureVideoOrientationPortrait;
-        self.videoCamera.defaultFPS = 1;
+        self.videoCamera.defaultFPS = 30;
     }
     [self.videoCamera start];
     
 }
-
+//Stops Camera
 - (void)stopCamera{
     [self.videoCamera stop];
 }
 
+//delegate required Method
 - (void)processImage:(cv::Mat &)image{
+    
+    //    captured Image is result CVmat to UIImage
     UIImage *capturedImage = [self UIImageFromCVMat:image];
     
     [self checkImageWorks:capturedImage];
 }
+
+
+
+
+
 
 -(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
 {
@@ -95,6 +106,9 @@
     return finalImage;
 }
 
+
+
+
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
 {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
@@ -131,7 +145,7 @@
     float minimumDistance;
     int minHessian;
     double minDistMultiplier;
-    minimumDistance = 0.2;
+    minimumDistance = 0.5;
     minHessian = 400;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);

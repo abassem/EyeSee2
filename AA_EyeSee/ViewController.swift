@@ -11,12 +11,12 @@ import AVFoundation
 
 class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
 
-    @IBOutlet weak var transpartentView: UIView!
+    //  @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var touchView: GestureRecognizer!
+    //   @IBOutlet weak var touchView: GestureRecognizer!
     
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
@@ -28,7 +28,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
         print(test)
         super.viewDidLoad()
         
-        self.touchView.delegate = self
+        //   self.touchView.delegate = self
 
 
     }
