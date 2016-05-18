@@ -16,7 +16,10 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
-    //   @IBOutlet weak var touchView: GestureRecognizer!
+
+    @IBOutlet weak var touchView: GestureRecognizer!
+    
+    
     
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
@@ -28,7 +31,13 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
         print(test)
         super.viewDidLoad()
         
-        //   self.touchView.delegate = self
+        self.startCapture.hidden = true
+        self.stopButton.hidden = true
+        
+        self.touchView.delegate = self
+        self.touchView.isAccessibilityElement = true
+//        self.touchView.accessibilityFrame = touchView.frame
+//        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
 
 
     }

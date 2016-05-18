@@ -26,13 +26,13 @@ class IdentifiedValueViewController: UIViewController, GestureRecognizerDelegate
     func swiped(gesture: UIGestureRecognizer) {
         if gesture.isKindOfClass(UISwipeGestureRecognizer){
             if let gesture = gesture as? UISwipeGestureRecognizer{
-                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 2 {
+                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     self.performSegueWithIdentifier("gestureLeftySegue", sender: nil)
                     print ("left segue")
-                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 2 {
+                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
                     self.performSegueWithIdentifier("gestureRightySegue", sender: nil)
                     print ("right segue")
-                } else if gesture.direction == .Down && gesture.numberOfTouchesRequired == 2 {
+                } else if gesture.direction == .Down && gesture.numberOfTouchesRequired == 1 {
                     print ("home page")
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("main") as! ViewController
