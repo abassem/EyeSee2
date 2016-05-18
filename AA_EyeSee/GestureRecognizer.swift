@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol GestureRecognizerDelegate {
     func swiped(gesture: UIGestureRecognizer)
@@ -23,6 +24,10 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
     
     var rawPoints:[Int] = []
     var recognizer:DBPathRecognizer?
+    
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+    let texty = "Hi Handsome, this app is so cool"
     
     override func awakeFromNib() {
         self.savedGestures()
@@ -58,10 +63,10 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
         
         let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 5)
         
-        recognizer.addModel(PathModel(directions: [4,3,2,1,0,7,6,5,4], datas:"O"))
-        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7,0], datas:"C"))
-        recognizer.addModel(PathModel(directions: [4], datas:"left"))
-        recognizer.addModel(PathModel(directions: [0], datas:"right"))
+        recognizer.addModel(PathModel(directions: [3,2,1,0,7,6,5,4], datas:"O"))
+        recognizer.addModel(PathModel(directions: [1,2,3,4,5,6,7,0], datas:"C"))
+//        recognizer.addModel(PathModel(directions: [4], datas:"left"))
+//        recognizer.addModel(PathModel(directions: [0], datas:"right"))
         
         self.recognizer = recognizer
         
@@ -74,28 +79,18 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
             if let letters =  gesture!.datas as? String{
                 if letters == "O"{
                     
-//                    // Initialize Fetch Request
-//                    let fetchRequest = NSFetchRequest()
-//                    
-//                    // Create Entity Description
-//                    let entityDescription = NSEntityDescription.entityForName("Wallet", inManagedObjectContext: self.managedObjectContext)
-//                    
-//                    // Configure Fetch Request
-//                    fetchRequest.entity = entityDescription
-//                    
-//                    do {
-//                        let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-//                        print(result)
-//                        
-//                    } catch {
-//                        let fetchError = error as NSError
-//                        print(fetchError)
-//                    }
-
+                    myUtterance = AVSpeechUtterance(string: texty)
+                    myUtterance.rate = 0.3
+                    synth.speakUtterance(myUtterance)
+                    
                     print ("counterclockwise")
                     
                 }else if letters == "C"{
                     print ("clockwise")
+                    
+                    myUtterance = AVSpeechUtterance(string: texty)
+                    myUtterance.rate = 0.3
+                    synth.speakUtterance(myUtterance)
                 
 //                }else if letters == "left"{
 //                    print ("left segue way to be activated")
