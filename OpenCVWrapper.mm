@@ -10,6 +10,7 @@
 #import <opencv2/highgui/cap_ios.h>
 #import <opencv2/imgproc/imgproc_c.h>
 #import <opencv2/imgproc/types_c.h>
+#import <CoreGraphics/CoreGraphics.h>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
@@ -45,7 +46,7 @@
         AVCaptureSessionPreset640x480;
         self.videoCamera.defaultAVCaptureVideoOrientation =
         AVCaptureVideoOrientationPortrait;
-        self.videoCamera.defaultFPS = 30;
+        self.videoCamera.defaultFPS = 10;
     }
     [self.videoCamera start];
     
@@ -145,8 +146,8 @@
     float minimumDistance;
     int minHessian;
     double minDistMultiplier;
-    minimumDistance = 0.5;
-    minHessian = 400;
+    minimumDistance = 0.2;
+    minHessian = 10;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);
     
@@ -223,16 +224,19 @@
     cv::vector<uchar> outputMask;
     NSLog(@"Object size: %lu", obj.size());
     NSLog(@"Scene size: %lu", scn.size());
-
+    
     cv::Mat homography = cv::findHomography(obj, scn, CV_RANSAC, 3, outputMask);
+    
     int inlierCounter = 0;
     for (int i = 0; i < outputMask.size(); i++) {
         if (outputMask[i] == 1) {
             inlierCounter++;
         }
-    
-    NSLog(@"Inliers percentage: %d", (int)(((float)inlierCounter / (float)outputMask.size()) * 100));
-    
+    }
+    NSLog(@"Inlier points %d", inlierCounter);
+//    NSLog(@"Inliers percentage: %d", (int)(((float)inlierCounter / (float)outputMask.size()) * 100));
+//    NSLog(@"Real percentage: %d", (int)(((float)inlierCounter / (float)goodMatches.size()) * 100));
+//    
     cv::vector<cv::Point2f> objCorners(4);
     objCorners[0] = cv::Point(0,0);
     objCorners[1] = cv::Point( objectImageMat1.cols, 0 );
@@ -243,12 +247,38 @@
     
     cv::perspectiveTransform(objCorners, scnCorners, homography);
     
+    cv::vector<cv::Point2f> rectCorners(4);
+    rectCorners[0] = scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0);
+    rectCorners[1] = scnCorners[1] + cv::Point2f( objectImageMat1.cols, 0);
+    rectCorners[2] = scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0);
+    rectCorners[3] = scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0);
+    
     cv::line( imageMatches, scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[1] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar(0, 255, 0), 4);
     cv::line( imageMatches, scnCorners[1] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
     cv::line( imageMatches, scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
     cv::line( imageMatches, scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, nil, rectCorners[0].x, rectCorners[0].y); //start from here
+    CGPathAddLineToPoint(path, nil, rectCorners[1].x, rectCorners[1].y);
+    CGPathAddLineToPoint(path, nil, rectCorners[2].x, rectCorners[2].y);
+    CGPathAddLineToPoint(path, nil, rectCorners[3].x, rectCorners[3].y);
+    int inTheRectCounter = 0;
+    for( int i = 0; i < scn.size(); i++ )
+    {
+    
+        CGPathContainsPoint(path, NULL, CGPointZero, NO);
+        CGPoint point = CGPointMake(float(scn[i].x),float(scn[i].y));
+        bool isItIn = CGPathContainsPoint(path, NULL, point, NO);
+        if( isItIn)
+        {
+            inTheRectCounter++;
+        }
     }
+    NSLog(@"inTheRectCounter %d", inTheRectCounter);
+  
     UIImage *pointImage = [self UIImageFromCVMat:imageMatches];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.mainImageView setImage:pointImage];
