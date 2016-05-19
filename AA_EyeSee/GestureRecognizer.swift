@@ -65,8 +65,9 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
         
         recognizer.addModel(PathModel(directions: [3,2,1,0,7,6,5,4], datas:"O"))
         recognizer.addModel(PathModel(directions: [1,2,3,4,5,6,7,0], datas:"C"))
-//        recognizer.addModel(PathModel(directions: [4], datas:"left"))
-//        recognizer.addModel(PathModel(directions: [0], datas:"right"))
+        recognizer.addModel(PathModel(directions: [3,1], datas:"L"))
+        recognizer.addModel(PathModel(directions: [1,3], datas:"R"))
+
         
         self.recognizer = recognizer
         
@@ -92,12 +93,28 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
                     myUtterance.rate = 0.3
                     synth.speakUtterance(myUtterance)
                 
-//                }else if letters == "left"{
-//                    print ("left segue way to be activated")
-//                    
-//                    
-//                }else if letters == "right"{
-//                    print ("right segue way to be activated")
+                }else if letters == "L"{
+                    print ("left segue way to be activated")
+                    
+                    let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+                    if (device.hasTorch) {
+                        do {
+                            try device.lockForConfiguration()
+                            if (device.torchMode == AVCaptureTorchMode.On) {
+                                device.torchMode = AVCaptureTorchMode.Off
+                            } else {
+                                try device.setTorchModeOnWithLevel(1.0)
+                            }
+                            device.unlockForConfiguration()
+                        } catch {
+                            print(error)
+                        }
+                        
+                    }
+  
+                    
+                }else if letters == "R"{
+                    print ("right segue way to be activated")
                     
                 }else {
                     print ("undetected")

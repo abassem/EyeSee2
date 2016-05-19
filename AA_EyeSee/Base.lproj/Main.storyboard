@@ -93,12 +93,12 @@
                                 <exclude reference="ZrX-hg-D9G"/>
                                 <exclude reference="cw2-LA-kzl"/>
                                 <exclude reference="ftw-oY-cEx"/>
-                                <exclude reference="4U8-N8-KpB"/>
                                 <exclude reference="FTd-dD-wHf"/>
                                 <exclude reference="QVd-8J-wC2"/>
                                 <exclude reference="fRR-8j-d0w"/>
                                 <exclude reference="tSQ-0x-wyC"/>
                                 <exclude reference="8MX-PK-kK0"/>
+                                <exclude reference="4U8-N8-KpB"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -118,7 +118,6 @@
                                 <exclude reference="vT7-Jp-Nnh"/>
                                 <exclude reference="vmx-nL-Hsz"/>
                                 <exclude reference="wtL-DB-0eH"/>
-                                <include reference="4U8-N8-KpB"/>
                                 <include reference="FTd-dD-wHf"/>
                                 <include reference="QVd-8J-wC2"/>
                                 <exclude reference="dsS-yb-owG"/>
@@ -128,6 +127,7 @@
                                 <exclude reference="UNx-3c-a96"/>
                                 <exclude reference="01E-N2-kwK"/>
                                 <include reference="8MX-PK-kK0"/>
+                                <include reference="4U8-N8-KpB"/>
                             </mask>
                         </variation>
                     </view>
