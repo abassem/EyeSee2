@@ -46,7 +46,7 @@
         AVCaptureSessionPreset640x480;
         self.videoCamera.defaultAVCaptureVideoOrientation =
         AVCaptureVideoOrientationPortrait;
-        self.videoCamera.defaultFPS = 10;
+        self.videoCamera.defaultFPS = 5 ;
     }
     [self.videoCamera start];
     
@@ -61,8 +61,11 @@
     
     //    captured Image is result CVmat to UIImage
     UIImage *capturedImage = [self UIImageFromCVMat:image];
-    
-    [self checkImageWorks:capturedImage];
+
+    [self checkImageWorks:capturedImage:@"rm20frontCropped.png"];
+    [self checkImageWorks:capturedImage:@"rm10frontCroppedSS.png"];
+    [self checkImageWorks:capturedImage:@"rm5frontCropped.png"];
+    [self checkImageWorks:capturedImage:@"rm1frontCropped.png"];
 }
 
 
@@ -133,7 +136,7 @@
     return cvMat;
 }
 
-- (void)checkImageWorks: (UIImage *)inputImage{
+- (void)checkImageWorks: (UIImage *)inputImage:(NSString *)moneyName{
     
     UIImage *sceneImage, *objectImage1;
 
@@ -147,14 +150,14 @@
     float minimumDistance;
     int minHessian;
     double minDistMultiplier;
-    minimumDistance = 0.95;
-    minHessian = 250;
+    minimumDistance = 0.6;
+    minHessian = 500;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);
     
     sceneImage = inputImage;
     
-    objectImage1 = [UIImage imageNamed:@"rm1front.jpg"];
+    objectImage1 = [UIImage imageNamed:moneyName];
 
     
     sceneImageMat = cv::Mat(sceneImage.size.height, sceneImage.size.width, CV_8UC1);
@@ -278,6 +281,17 @@
         }
     }
     NSLog(@"inTheRectCounter %d", inTheRectCounter);
+    float inTheRectfloat = float(inTheRectCounter);
+    float goodMatchFloat = float(goodMatches.size());
+    float percentage = (inTheRectfloat/goodMatchFloat)*100;
+    NSLog(@"Percentage is  %f", percentage);
+    
+//    if([path CGPath])
+    
+    if(percentage > 0.0) {
+        NSLog(moneyName);
+        
+    }
   
     UIImage *pointImage = [self UIImageFromCVMat:imageMatches];
     
