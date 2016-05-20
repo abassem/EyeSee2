@@ -136,6 +136,7 @@
 - (void)checkImageWorks: (UIImage *)inputImage{
     
     UIImage *sceneImage, *objectImage1;
+
     cv::Mat sceneImageMat, objectImageMat1;
     cv::vector<cv::KeyPoint> sceneKeypoints, objectKeypoints1;
     cv::Mat sceneDescriptors, objectDescriptors1;
@@ -146,21 +147,22 @@
     float minimumDistance;
     int minHessian;
     double minDistMultiplier;
-    minimumDistance = 0.2;
-    minHessian = 10;
+    minimumDistance = 0.95;
+    minHessian = 250;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);
     
     sceneImage = inputImage;
     
-    objectImage1 = [UIImage imageNamed:@"rmone.jpg"];
+    objectImage1 = [UIImage imageNamed:@"rm1front.jpg"];
+
     
     sceneImageMat = cv::Mat(sceneImage.size.height, sceneImage.size.width, CV_8UC1);
     objectImageMat1 = cv::Mat(objectImage1.size.height, objectImage1.size.width, CV_8UC1);
     
     
-    cv::cvtColor([self cvMatFromUIImage:sceneImage], sceneImageMat, CV_RGB2GRAY);
-    cv::cvtColor([self cvMatFromUIImage:objectImage1], objectImageMat1, CV_RGB2GRAY);
+    cv::cvtColor([self cvMatFromUIImage:sceneImage], sceneImageMat, CV_BGR2GRAY);
+    cv::cvtColor([self cvMatFromUIImage:objectImage1], objectImageMat1, CV_BGR2GRAY);
     
     if (!sceneImageMat.data || !objectImageMat1.data) {
         NSLog(@"NO DATA");
