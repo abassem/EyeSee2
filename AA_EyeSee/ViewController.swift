@@ -31,8 +31,8 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
         print(test)
         super.viewDidLoad()
         
-        self.startCapture.hidden = true
-        self.stopButton.hidden = true
+//        self.startCapture.hidden = true
+//        self.stopButton.hidden = true
         
         self.touchView.delegate = self
         self.touchView.isAccessibilityElement = true
