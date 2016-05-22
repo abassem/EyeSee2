@@ -49,7 +49,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
             do {
                 try device.lockForConfiguration()
                 if (device.torchMode == AVCaptureTorchMode.On) {
-                    device.torchMode = AVCaptureTorchMode.Off
+                    print("already on")
                 } else {
                     try device.setTorchModeOnWithLevel(1.0)
                 }
