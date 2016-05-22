@@ -46,7 +46,7 @@
         AVCaptureSessionPreset640x480;
         self.videoCamera.defaultAVCaptureVideoOrientation =
         AVCaptureVideoOrientationPortrait;
-        self.videoCamera.defaultFPS = 5 ;
+        self.videoCamera.defaultFPS = 10 ;
     }
     [self.videoCamera start];
     
@@ -66,6 +66,8 @@
     [self checkImageWorks:capturedImage:@"rm10frontCroppedSS.png"];
     [self checkImageWorks:capturedImage:@"rm5frontCropped.png"];
     [self checkImageWorks:capturedImage:@"rm1frontCropped.png"];
+    [self checkImageWorks:capturedImage:@"rm5front_LeftSection.png"];
+
 }
 
 
@@ -151,7 +153,7 @@
     int minHessian;
     double minDistMultiplier;
     minimumDistance = 0.6;
-    minHessian = 500;
+    minHessian = 400;
     minDistMultiplier= 3;
     surfDetector = new cv::SurfFeatureDetector(minHessian);
     
