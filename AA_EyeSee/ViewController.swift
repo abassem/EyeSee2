@@ -27,8 +27,7 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
 //        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
-        let test = OpenCVWrapper.openCVersionString
-        print(test)
+        wrapper.initMoney()
         super.viewDidLoad()
         
 //        self.startCapture.hidden = true
