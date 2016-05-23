@@ -7,6 +7,7 @@
 //
 
 #import "OpenCVWrapper.h"
+#import "Money.h"
 #import <opencv2/highgui/cap_ios.h>
 #import <opencv2/imgproc/imgproc_c.h>
 #import <opencv2/imgproc/types_c.h>
@@ -22,10 +23,38 @@
 @interface OpenCVWrapper() <CvVideoCameraDelegate>
 @property CvVideoCamera *videoCamera;
 @property UIImageView *mainImageView;
+@property NSArray *moneyArray;
 @end
 
 @implementation OpenCVWrapper
 
+-(void)initMoney {
+    Money *oneMoney = [[Money alloc] init];
+    [oneMoney setName:@"One Ringgit"];
+    [oneMoney setValue:1];
+    [oneMoney setCounter:0];
+    [oneMoney setImage:[UIImage imageNamed:@"rm1frontCropped.png"]];
+    
+    Money *fiveMoney = [[Money alloc] init];
+    [fiveMoney setName:@"Five Ringgit"];
+    [fiveMoney setValue:5];
+    [fiveMoney setCounter:0];
+    [fiveMoney setImage:[UIImage imageNamed:@"rm5frontCropped.png"]];
+    
+    Money *tenMoney = [[Money alloc] init];
+    [tenMoney setName:@"Ten Ringgit"];
+    [tenMoney setValue:10];
+    [tenMoney setCounter:0];
+    [tenMoney setImage:[UIImage imageNamed:@"rm10frontCroppedSS.png"]];
+    
+    Money *twentyMoney = [[Money alloc] init];
+    [twentyMoney setName:@"Twenty Ringgit"];
+    [twentyMoney setValue:20];
+    [twentyMoney setCounter:0];
+    [twentyMoney setImage:[UIImage imageNamed:@"rm20frontCropped.png"]];
+    
+    self.moneyArray = [[NSArray alloc] initWithObjects:oneMoney,fiveMoney,tenMoney,twentyMoney, nil];
+}
 
 +(NSString *) openCVersionString{
     
@@ -61,11 +90,12 @@
     
     //    captured Image is result CVmat to UIImage
     UIImage *capturedImage = [self UIImageFromCVMat:image];
+    for (int i = 0; i < [self.moneyArray count]; i++) {
+        Money *money = self.moneyArray[i];
+    [self checkImageWorks:capturedImage:money];
+    }
+    
 
-    [self checkImageWorks:capturedImage:@"rm20frontCropped.png"];
-    [self checkImageWorks:capturedImage:@"rm10frontCroppedSS.png"];
-    [self checkImageWorks:capturedImage:@"rm5frontCropped.png"];
-    [self checkImageWorks:capturedImage:@"rm1frontCropped.png"];
 }
 
 
@@ -136,7 +166,7 @@
     return cvMat;
 }
 
-- (void)checkImageWorks: (UIImage *)inputImage:(NSString *)moneyName{
+- (void)checkImageWorks: (UIImage *)inputImage:(Money *)money{
     
     UIImage *sceneImage, *objectImage1;
 
@@ -157,7 +187,7 @@
     
     sceneImage = inputImage;
     
-    objectImage1 = [UIImage imageNamed:moneyName];
+    objectImage1 = [money getImage];
 
     
     sceneImageMat = cv::Mat(sceneImage.size.height, sceneImage.size.width, CV_8UC1);
@@ -258,12 +288,17 @@
     rectCorners[2] = scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0);
     rectCorners[3] = scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0);
     
-    cv::line( imageMatches, scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[1] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar(0, 255, 0), 4);
-    cv::line( imageMatches, scnCorners[1] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
-    cv::line( imageMatches, scnCorners[2] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
-    cv::line( imageMatches, scnCorners[3] + cv::Point2f( objectImageMat1.cols, 0), scnCorners[0] + cv::Point2f( objectImageMat1.cols, 0), cv::Scalar( 0, 255, 0), 4);
+    cv::line( imageMatches, rectCorners[0], rectCorners[1], cv::Scalar(0, 255, 0), 4);
+    cv::line( imageMatches, rectCorners[1], rectCorners[2], cv::Scalar( 0, 255, 0), 4);
+    cv::line( imageMatches, rectCorners[2], rectCorners[3], cv::Scalar( 0, 255, 0), 4);
+    cv::line( imageMatches, rectCorners[3], rectCorners[0], cv::Scalar( 0, 255, 0), 4);
     
     CGMutablePathRef path = CGPathCreateMutable();
+     NSLog(@"RectPoints: %f, %f", rectCorners[0].x, rectCorners[0].y );
+     NSLog(@"RectPoints: %f, %f", rectCorners[1].x, rectCorners[1].y );
+     NSLog(@"RectPoints: %f, %f", rectCorners[2].x, rectCorners[2].y );
+     NSLog(@"RectPoints: %f, %f", rectCorners[3].x, rectCorners[3].y );
+    
     CGPathMoveToPoint(path, nil, rectCorners[0].x, rectCorners[0].y); //start from here
     CGPathAddLineToPoint(path, nil, rectCorners[1].x, rectCorners[1].y);
     CGPathAddLineToPoint(path, nil, rectCorners[2].x, rectCorners[2].y);
@@ -274,22 +309,30 @@
     
         CGPathContainsPoint(path, NULL, CGPointZero, NO);
         CGPoint point = CGPointMake(float(scn[i].x),float(scn[i].y));
+        NSLog(@"Points: %f, %f", point.x, point.y );
         bool isItIn = CGPathContainsPoint(path, NULL, point, NO);
         if( isItIn)
         {
             inTheRectCounter++;
         }
     }
+    
     NSLog(@"inTheRectCounter %d", inTheRectCounter);
     float inTheRectfloat = float(inTheRectCounter);
     float goodMatchFloat = float(goodMatches.size());
     float percentage = (inTheRectfloat/goodMatchFloat)*100;
     NSLog(@"Percentage is  %f", percentage);
     
-//    if([path CGPath])
+
     
     if(percentage > 0.0) {
-        NSLog(moneyName);
+        [money addCounter];
+        
+        if([money getCounter] == 2) {
+            
+            NSLog(@"%@",[money getName]);
+            
+        }
         
     }
   
@@ -298,6 +341,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.mainImageView setImage:pointImage];
+        
     });
     
 }

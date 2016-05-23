@@ -21,5 +21,5 @@
 + (NSString *) openCVersionString;
 - (void)startCamera:(UIImageView*)imageView alt:(UIImageView*) mainImageView;
 - (void)stopCamera;
-
+- (void)initMoney;
 @end

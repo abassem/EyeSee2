@@ -9,7 +9,7 @@
 #import "Money.h"
 #import <UIKit/UIKit.h>
 @implementation Money
-{
+ {
     
     int _value;
     NSString *_name;
@@ -19,16 +19,32 @@
 }
 
 -(void)setName:(NSString *)name {
-    self.name = name;
+    _name = name;
 }
 -(void)setValue:(int)value {
-    self.value = value;
+    _value = value;
 }
 -(void)setCounter:(int)counter {
-    self.counter = counter;
+    _counter = counter;
 }
 -(void)setImage:(UIImage*)image {
-    self.image = image;
+    _image = image;
 }
 
+-(UIImage*)getImage {
+    return _image;
+}
+
+-(int)getCounter {
+    return _counter;
+}
+
+-(NSString*)getName {
+    return _name;
+}
+
+-(void)addCounter {
+    int newCounter = [self getCounter] + 1;
+    _counter = newCounter;
+}
 @end

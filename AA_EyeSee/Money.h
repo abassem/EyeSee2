@@ -13,5 +13,8 @@
 - (void)setValue:(int)name;
 - (void)setCounter:(int)name;
 - (void)setImage:(UIImage*)name;
-
+- (UIImage*)getImage;
+- (void)addCounter;
+- (int)getCounter;
+- (NSString*)getName;
 @end
