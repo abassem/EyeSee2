@@ -43,6 +43,20 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
  //delete after development (start camera automatically)
     @IBAction func onStartButtonPressed(sender: AnyObject) {
         self.wrapper.startCamera(self.imageView, alt: mainImageView)
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        if (device.hasTorch) {
+            do {
+                try device.lockForConfiguration()
+                if (device.torchMode == AVCaptureTorchMode.On) {
+                    print("already on")
+                } else {
+                    try device.setTorchModeOnWithLevel(1.0)
+                }
+                device.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+        }
     }
 
     //delete after development (start camera automatically)
