@@ -11,7 +11,9 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
-    
+    @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
@@ -56,5 +58,5 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var scannerButtonPressed: UIButton!
 
-    
+  
 }

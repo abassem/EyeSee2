@@ -157,9 +157,11 @@
                         <outlet property="mainImageView" destination="i7f-Vo-taQ" id="DKr-Fd-zCK"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <outlet property="touchView" destination="STE-Xq-bxu" id="jbW-sc-z0w"/>
+                        <segue destination="W16-0j-qc0" kind="unwind" identifier="toHomeVC" unwindAction="unwindToContainerVC:" id="3G7-tD-RWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="W16-0j-qc0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2585" y="394"/>
         </scene>
