@@ -19,7 +19,8 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
 
     @IBOutlet weak var touchView: GestureRecognizer!
     
-    
+    var changeWalletMoney = true
+    //moneyAmountFound
     
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
@@ -66,28 +67,89 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     
     //handle swipe guestures
     func swiped(gesture: UIGestureRecognizer) {
+        
         if gesture.isKindOfClass(UISwipeGestureRecognizer){
+            
+            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+            let documentsDirectory = paths[0] as! String
+            
+            let fileManager = NSFileManager.defaultManager()
+            
             if let gesture = gesture as? UISwipeGestureRecognizer{
                 if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     
-                    let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
-                    let value = NSDictionary(contentsOfFile: path!)
+                    let paths = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist")
+                    let value = NSMutableDictionary(contentsOfFile: paths!)
         
-                    let walletValue = value!.objectForKey("wallet") as! Int32
+                    let walletValue = value!.objectForKey("Wallet") as! Int
                     print(walletValue)
                     // get balance from Plist = walletValue
                     
-                    let totalWalletValue = walletValue + wrapper.moneyFound
+                    let totalWalletValue = NSNumber(int: walletValue + wrapper.moneyFound)
                     
+                    let path = documentsDirectory + "/Wallet"
                     
-                    // GetValue from Wrapper + wallet value
+                    if(!fileManager.fileExistsAtPath(path)) {
+                        // If it doesn't, copy it from the default file in the Bundle
+                        if let bundlePath = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist") {
+                            
+                            do {
+                                try fileManager.copyItemAtPath(bundlePath, toPath: path)
+                            }catch{
+                                print("error copying")
+                            }
+                            
+                        } else {
+                            print("Wallet.plist not found. Please, make sure it is part of the bundle.")
+                        }
+                    } else {
+                        print("Wallet.plist already exits at path.")
+                        // use this to delete file from documents directory
+                        //fileManager.removeItemAtPath(path, error: nil)
+                    }
                     
-                    // send walletvalue back to store in Plist
+                    let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+                    print(resultDictionary)
+                    let dict: NSMutableDictionary = [:]
                     
-                    
-                    print ("wartttt")
-                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
+                    dict.setObject(totalWalletValue, forKey: walletValue)
 
+                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
+                    let paths = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist")
+                    let value = NSMutableDictionary(contentsOfFile: paths!)
+                    
+                    let walletValue = value!.objectForKey("Wallet") as! Int
+                    print(walletValue)
+                    // get balance from Plist = walletValue
+                    
+                    let totalWalletValue = NSNumber(int: wrapper.moneyFound - walletValue)
+                    
+                    let path = documentsDirectory + "/Wallet"
+                    
+                    if(!fileManager.fileExistsAtPath(path)) {
+                        // If it doesn't, copy it from the default file in the Bundle
+                        if let bundlePath = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist") {
+                            
+                            do {
+                                try fileManager.copyItemAtPath(bundlePath, toPath: path)
+                            }catch{
+                                print("error copying")
+                            }
+                            
+                        } else {
+                            print("Wallet.plist not found. Please, make sure it is part of the bundle.")
+                        }
+                    } else {
+                        print("Wallet.plist already exits at path.")
+                        // use this to delete file from documents directory
+                        //fileManager.removeItemAtPath(path, error: nil)
+                    }
+                    
+                    let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+                    print(resultDictionary)
+                    let dict: NSMutableDictionary = [:]
+                    
+                    dict.setObject(totalWalletValue, forKey: walletValue)
                     print ("helloooo")
                 }
             }
@@ -95,8 +157,20 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     }
     
     func found() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.swiped(_:)))
-        self.view.addGestureRecognizer(gestureRecognizer)
+        // read out the money value
+        // stop Camera
+        // add gesture
+        if changeWalletMoney == true {
+            
+            let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swiped(_:)))
+            self.view.addGestureRecognizer(gestureRecognizer)
+            changeWalletMoney = false
+
+        } else {
+            changeWalletMoney = true
+        }
+
     }
+
 }
 
