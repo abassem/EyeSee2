@@ -14,9 +14,38 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths[0] as! String
+        let fileManager = NSFileManager.defaultManager()
         
-        let paths = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist")
-        let value = NSMutableDictionary(contentsOfFile: paths!)
+        let path = documentsDirectory + "/Wallet"
+        
+        if(!fileManager.fileExistsAtPath(path)) {
+            // If it doesn't, copy it from the default file in the Bundle
+            if let bundlePath = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist") {
+                
+                do {
+                    try fileManager.copyItemAtPath(bundlePath, toPath: path)
+                }catch{
+                    print("error copying")
+                }
+                
+            } else {
+                print("Wallet.plist not found. Please, make sure it is part of the bundle.")
+            }
+        } else {
+            print("Wallet.plist already exits at path.")
+            // use this to delete file from documents directory
+            //fileManager.removeItemAtPath(path, error: nil)
+        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths[0] as! String
+        let path = documentsDirectory + "/Wallet"
+        let value = NSMutableDictionary(contentsOfFile: path)
         
         if let walletValue = value!.objectForKey("Wallet") as? NSNumber
         {

@@ -69,86 +69,64 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             
             let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
             let documentsDirectory = paths[0] as! String
+            let path = documentsDirectory + "/Wallet"
             
-            let fileManager = NSFileManager.defaultManager()
+            
             
             if let gesture = gesture as? UISwipeGestureRecognizer{
                 if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     
-                    let paths = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist")
-                    let value = NSMutableDictionary(contentsOfFile: paths!)
+
+                    let value = NSMutableDictionary(contentsOfFile: path)
         
                     let walletValue = value!.objectForKey("Wallet") as! Int
                     print(walletValue)
                     // get balance from Plist = walletValue
-                    
+                    print(wrapper.moneyFound)
                     let totalWalletValue = NSNumber(int: walletValue + wrapper.moneyFound)
-                    
-                    let path = documentsDirectory + "/Wallet"
-
-                    
-                    if(!fileManager.fileExistsAtPath(path)) {
-                        // If it doesn't, copy it from the default file in the Bundle
-                        if let bundlePath = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist") {
-                            
-                            do {
-                                try fileManager.copyItemAtPath(bundlePath, toPath: path)
-                            }catch{
-                                print("error copying")
-                            }
-                            
-                        } else {
-                            print("Wallet.plist not found. Please, make sure it is part of the bundle.")
-                        }
-                    } else {
-                        print("Wallet.plist already exits at path.")
-                        // use this to delete file from documents directory
-                        //fileManager.removeItemAtPath(path, error: nil)
-                    }
+                    print(totalWalletValue)
                     
                     let resultDictionary = NSMutableDictionary(contentsOfFile: path)
                     print(resultDictionary)
                     let dict: NSMutableDictionary = [:]
                     
-                    dict.setObject(totalWalletValue, forKey: walletValue)
+                    dict.setObject(totalWalletValue, forKey: "Wallet")
+                    
+                    let works = dict.writeToFile(path, atomically: true) as Bool
+                    
+                    if works == true {
+                        print("it works")
+                    } else {
+                        print("it fails")
+                    }
+
+                    
+                    
 
                 } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
-                    let paths = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist")
-                    let value = NSMutableDictionary(contentsOfFile: paths!)
+                    
+                    let value = NSMutableDictionary(contentsOfFile: path)
                     
                     let walletValue = value!.objectForKey("Wallet") as! Int
                     print(walletValue)
                     // get balance from Plist = walletValue
                     
-                    let totalWalletValue = NSNumber(int: wrapper.moneyFound - walletValue)
+                    let totalWalletValue = NSNumber(int: Int32(walletValue) - wrapper.moneyFound)
                     
                     let path = documentsDirectory + "/Wallet"
-                    
-                    if(!fileManager.fileExistsAtPath(path)) {
-                        // If it doesn't, copy it from the default file in the Bundle
-                        if let bundlePath = NSBundle.mainBundle().pathForResource("Wallet", ofType: "plist") {
-                            
-                            do {
-                                try fileManager.copyItemAtPath(bundlePath, toPath: path)
-                            }catch{
-                                print("error copying")
-                            }
-                            
-                        } else {
-                            print("Wallet.plist not found. Please, make sure it is part of the bundle.")
-                        }
-                    } else {
-                        print("Wallet.plist already exits at path.")
-                        // use this to delete file from documents directory
-                        //fileManager.removeItemAtPath(path, error: nil)
-                    }
                     
                     let resultDictionary = NSMutableDictionary(contentsOfFile: path)
                     print(resultDictionary)
                     let dict: NSMutableDictionary = [:]
                     
-                    dict.setObject(totalWalletValue, forKey: walletValue)
-                    print ("helloooo")
+                    dict.setObject(totalWalletValue, forKey: "Wallet")
+                    let works = dict.writeToFile(path, atomically: true) as Bool
+                    
+                    if works == true {
+                        print("it works")
+                    } else {
+                        print("it fails")
+                    }
                 }
             }
         }
