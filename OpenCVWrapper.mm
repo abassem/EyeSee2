@@ -341,7 +341,7 @@
             self.moneyFound =[money getValue];
             
         }
-        
+        //  ++ else timer  45sec {tell them something}
     }
   
     UIImage *pointImage = [self UIImageFromCVMat:imageMatches];

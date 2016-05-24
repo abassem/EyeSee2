@@ -57,7 +57,6 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
 
 
-    //delete after development (start camera automatically)
     @IBAction func onStopButtonPressed(sender: AnyObject) {
         self.wrapper.stopCamera();
     }
@@ -74,6 +73,9 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             
             
             if let gesture = gesture as? UISwipeGestureRecognizer{
+              
+                //left direction
+                
                 if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     
 
@@ -96,12 +98,14 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
+
                     } else {
                         print("it fails")
                     }
 
-                    
-                    
+                    self.performSegueWithIdentifier("toHomeVC", sender: self)
+
+                    //right direction
 
                 } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
                     
@@ -124,9 +128,12 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
+
                     } else {
                         print("it fails")
                     }
+                    self.performSegueWithIdentifier("toHomeVC", sender: self)
+
                 }
             }
         }
