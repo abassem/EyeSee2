@@ -13,13 +13,18 @@
 @class CvVideoCamera;
 
 @protocol OpenCVWrapperDelegate
+-(void)found;
+
 @end
 
 @interface OpenCVWrapper : NSObject
 
 @property (nonatomic, assign) id <OpenCVWrapperDelegate> delegate;
+@property (nonatomic, readonly) int moneyFound;
 + (NSString *) openCVersionString;
 - (void)startCamera:(UIImageView*)imageView alt:(UIImageView*) mainImageView;
 - (void)stopCamera;
 - (void)initMoney;
+
+
 @end

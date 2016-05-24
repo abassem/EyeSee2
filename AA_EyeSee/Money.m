@@ -39,6 +39,10 @@
     return _counter;
 }
 
+-(int)getValue {
+    return _value;
+}
+
 -(NSString*)getName {
     return _name;
 }

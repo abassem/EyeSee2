@@ -68,15 +68,35 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     func swiped(gesture: UIGestureRecognizer) {
         if gesture.isKindOfClass(UISwipeGestureRecognizer){
             if let gesture = gesture as? UISwipeGestureRecognizer{
-                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 2 {
-                    self.performSegueWithIdentifier("gestureLeftSegue", sender: nil)
+                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
+                    
+                    let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+                    let value = NSDictionary(contentsOfFile: path!)
+        
+                    let walletValue = value!.objectForKey("wallet") as! Int32
+                    print(walletValue)
+                    // get balance from Plist = walletValue
+                    
+                    let totalWalletValue = walletValue + wrapper.moneyFound
+                    
+                    
+                    // GetValue from Wrapper + wallet value
+                    
+                    // send walletvalue back to store in Plist
+                    
+                    
                     print ("wartttt")
-                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 2 {
-                    self.performSegueWithIdentifier("gestureRightSegue", sender: nil)
+                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
+
                     print ("helloooo")
                 }
             }
         }
+    }
+    
+    func found() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.swiped(_:)))
+        self.view.addGestureRecognizer(gestureRecognizer)
     }
 }
 

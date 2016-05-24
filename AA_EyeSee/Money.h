@@ -16,5 +16,6 @@
 - (UIImage*)getImage;
 - (void)addCounter;
 - (int)getCounter;
+- (int)getValue;
 - (NSString*)getName;
 @end
