@@ -98,13 +98,13 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
-                        self.performSegueWithIdentifier("toHomeVC", sender: self)
 
                     } else {
                         print("it fails")
                     }
 
-                    
+                    self.performSegueWithIdentifier("toHomeVC", sender: self)
+
                     //right direction
 
                 } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
@@ -128,11 +128,12 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
-                        self.performSegueWithIdentifier("toHomeVC", sender: self)
 
                     } else {
                         print("it fails")
                     }
+                    self.performSegueWithIdentifier("toHomeVC", sender: self)
+
                 }
             }
         }

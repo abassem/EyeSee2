@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         
         if let walletValue = value!.objectForKey("Wallet") as? NSNumber
         {
-            self.balanceLabel.text = "\(walletValue)"
+            self.balanceLabel.text = "You Currently have \(walletValue) RM, Press on the Lower part of the screen to Scan again"
         }
         
     }

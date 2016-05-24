@@ -179,7 +179,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-bn-Uw7">
                                 <rect key="frame" x="0.0" y="264" width="600" height="336"/>
-                                <state key="normal" title="Scanner"/>
+                                <state key="normal" title="Start Scanning Money. "/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Uzo-1m-09p"/>
                                 </connections>
