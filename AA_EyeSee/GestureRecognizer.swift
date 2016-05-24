@@ -131,17 +131,17 @@ class GestureRecognizer: UIView, UIGestureRecognizerDelegate {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GestureRecognizer.handleSwipe(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        swipeRight.numberOfTouchesRequired = 2
+        swipeRight.numberOfTouchesRequired = 1
         self.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(GestureRecognizer.handleSwipe(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        swipeLeft.numberOfTouchesRequired = 2
+        swipeLeft.numberOfTouchesRequired = 1
         self.addGestureRecognizer(swipeLeft)
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(GestureRecognizer.handleSwipe(_:)))
         swipeDown.direction = UISwipeGestureRecognizerDirection.Down
-        swipeDown.numberOfTouchesRequired = 2
+        swipeDown.numberOfTouchesRequired = 1
         self.addGestureRecognizer(swipeDown)
         
         

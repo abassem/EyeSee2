@@ -24,11 +24,16 @@
 @property CvVideoCamera *videoCamera;
 @property UIImageView *mainImageView;
 @property NSArray *moneyArray;
+@property bool foundMoney;
+@property (nonatomic, readwrite) int moneyFound;
 @end
 
 @implementation OpenCVWrapper
 
 -(void)initMoney {
+    
+    self.moneyFound = 0;
+    
     Money *oneMoney = [[Money alloc] init];
     [oneMoney setName:@"One Ringgit"];
     [oneMoney setValue:1];
@@ -87,23 +92,21 @@
 
 //delegate required Method
 - (void)processImage:(cv::Mat &)image{
-    
-    //    captured Image is result CVmat to UIImage
-    UIImage *capturedImage = [self UIImageFromCVMat:image];
-    for (int i = 0; i < [self.moneyArray count]; i++) {
-        Money *money = self.moneyArray[i];
-    [self checkImageWorks:capturedImage:money];
+        
+    if(self.moneyFound == 0) {
+        //    captured Image is result CVmat to UIImage
+        UIImage *capturedImage = [self UIImageFromCVMat:image];
+        for (int i = 0; i < [self.moneyArray count]; i++) {
+            Money *money = self.moneyArray[i];
+        [self checkImageWorks:capturedImage:money];
+         }
+    } else {
+        
+        [self.delegate found];
     }
-    
-
-    [self checkImageWorks:capturedImage:@"rm20frontCropped.png"];
-    [self checkImageWorks:capturedImage:@"rm10frontCroppedSS.png"];
-    [self checkImageWorks:capturedImage:@"rm5frontCropped.png"];
-    [self checkImageWorks:capturedImage:@"rm1frontCropped.png"];
-    [self checkImageWorks:capturedImage:@"rm5front_LeftSection.png"];
-
-
 }
+
+
 
 -(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
 {
@@ -333,6 +336,8 @@
         if([money getCounter] == 2) {
             
             NSLog(@"%@",[money getName]);
+            NSLog(@"%d",[money getValue]);
+            self.moneyFound =[money getValue];
             
         }
         
