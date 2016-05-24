@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="CameraViewController" customModule="AA_EyeSee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,19 +23,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="514" id="oCJ-II-db6"/>
                                 </constraints>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="341"/>
                                     <mask key="constraints">
                                         <exclude reference="oCJ-II-db6"/>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-j1-8bW">
-                                <rect key="frame" x="108" y="550" width="93" height="30"/>
-                                <state key="normal" title="Start Capture"/>
-                                <connections>
-                                    <action selector="onStartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iwD-eh-P9c"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0E-Fo-J67">
                                 <rect key="frame" x="268" y="550" width="91" height="30"/>
                                 <state key="normal" title="Stop Capture"/>
@@ -53,7 +47,8 @@
                                         <exclude reference="dKa-pV-yei"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="342" width="400" height="206"/>
                                     <mask key="constraints">
                                         <include reference="dKa-pV-yei"/>
                                     </mask>
@@ -61,12 +56,13 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STE-Xq-bxu" customClass="GestureRecognizer" customModule="AA_EyeSee" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="486"/>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e0E-Fo-J67" firstAttribute="leading" secondItem="lEP-j1-8bW" secondAttribute="trailing" constant="67" id="01E-N2-kwK"/>
-                            <constraint firstItem="lEP-j1-8bW" firstAttribute="baseline" secondItem="e0E-Fo-J67" secondAttribute="baseline" id="02v-Ys-FQM"/>
                             <constraint firstAttribute="trailing" secondItem="STE-Xq-bxu" secondAttribute="trailing" id="1qW-ZN-tPe"/>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" id="3zI-ff-21q"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="4wO-5d-bOY"/>
@@ -74,18 +70,13 @@
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8AZ-Rc-N5r"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="trailing" secondItem="STE-Xq-bxu" secondAttribute="trailing" id="APa-nW-Lnq"/>
-                            <constraint firstItem="lEP-j1-8bW" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" id="B2K-g8-JHq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lEP-j1-8bW" secondAttribute="bottom" constant="20" id="JpB-AF-Rk7"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="LJc-el-MOc"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NrR-s1-JqS"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SmI-W4-6vA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" id="UNx-3c-a96"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UVc-a6-Pwh"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="trailing" secondItem="i7f-Vo-taQ" secondAttribute="trailing" id="Z5A-9i-rBa"/>
-                            <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="dsS-yb-owG"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eWW-cT-myN"/>
-                            <constraint firstItem="e0E-Fo-J67" firstAttribute="leading" secondItem="lEP-j1-8bW" secondAttribute="trailing" constant="67" id="fLU-D8-Jc2"/>
-                            <constraint firstItem="lEP-j1-8bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="88" id="fin-Ab-KFU"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" constant="1" id="g8a-97-Rv2"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="hES-ia-q4f"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="278" id="hk3-xg-H8w"/>
@@ -93,7 +84,6 @@
                             <constraint firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="puE-XF-HhY"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qYA-8n-Duw"/>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="i7f-Vo-taQ" secondAttribute="bottom" constant="2" id="rhN-iM-6QN"/>
-                            <constraint firstAttribute="bottom" secondItem="lEP-j1-8bW" secondAttribute="bottom" constant="20" symbolic="YES" id="uQc-6f-szg"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="bottom" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="ucd-kn-CpP"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vT7-Jp-Nnh"/>
                             <constraint firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="vmx-nL-Hsz"/>
@@ -115,14 +105,9 @@
                                 <exclude reference="8AZ-Rc-N5r"/>
                                 <exclude reference="Z5A-9i-rBa"/>
                                 <exclude reference="hES-ia-q4f"/>
-                                <exclude reference="02v-Ys-FQM"/>
-                                <exclude reference="B2K-g8-JHq"/>
                                 <exclude reference="g8a-97-Rv2"/>
                                 <exclude reference="qYA-8n-Duw"/>
                                 <exclude reference="zMU-cX-aqn"/>
-                                <exclude reference="fin-Ab-KFU"/>
-                                <exclude reference="uQc-6f-szg"/>
-                                <exclude reference="fLU-D8-Jc2"/>
                                 <exclude reference="rhN-iM-6QN"/>
                             </mask>
                         </variation>
@@ -149,8 +134,6 @@
                                 <include reference="Z5A-9i-rBa"/>
                                 <exclude reference="eWW-cT-myN"/>
                                 <include reference="hES-ia-q4f"/>
-                                <include reference="02v-Ys-FQM"/>
-                                <include reference="B2K-g8-JHq"/>
                                 <exclude reference="APa-nW-Lnq"/>
                                 <include reference="g8a-97-Rv2"/>
                                 <exclude reference="hk3-xg-H8w"/>
@@ -158,14 +141,8 @@
                                 <exclude reference="zqu-Lm-Cvh"/>
                                 <exclude reference="qYA-8n-Duw"/>
                                 <exclude reference="zMU-cX-aqn"/>
-                                <exclude reference="dsS-yb-owG"/>
-                                <include reference="fin-Ab-KFU"/>
-                                <include reference="uQc-6f-szg"/>
-                                <exclude reference="JpB-AF-Rk7"/>
                                 <exclude reference="UNx-3c-a96"/>
-                                <exclude reference="01E-N2-kwK"/>
                                 <exclude reference="3zI-ff-21q"/>
-                                <include reference="fLU-D8-Jc2"/>
                                 <include reference="rhN-iM-6QN"/>
                             </mask>
                         </variation>
@@ -174,7 +151,6 @@
                     <connections>
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
                         <outlet property="mainImageView" destination="i7f-Vo-taQ" id="DKr-Fd-zCK"/>
-                        <outlet property="startCapture" destination="lEP-j1-8bW" id="Vir-Yp-2w9"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <outlet property="touchView" destination="STE-Xq-bxu" id="jbW-sc-z0w"/>
                     </connections>
@@ -208,7 +184,7 @@
                                     <constraint firstAttribute="height" constant="200" id="GN8-of-qsH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
