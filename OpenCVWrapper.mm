@@ -102,6 +102,7 @@
          }
     } else {
         
+        [self stopCamera];
         [self.delegate found];
     }
 }
