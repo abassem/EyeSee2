@@ -44,6 +44,8 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        self.view.setNeedsDisplay()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! String
         let path = documentsDirectory + "/Wallet"
@@ -53,7 +55,7 @@ class HomeViewController: UIViewController {
         {
             self.balanceLabel.text = "You Currently have \(walletValue) RM, Press on the Lower part of the screen to Scan again"
         }
-        
+
     }
 
     @IBOutlet weak var scannerButtonPressed: UIButton!
