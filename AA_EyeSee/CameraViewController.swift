@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CameraViewController.swift
 //  AA_EyeSee
 //
 //  Created by Abdo Assem on 5/10/16.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
+class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
 
     //  @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
@@ -37,11 +37,6 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
         self.touchView.isAccessibilityElement = true
 //        self.touchView.accessibilityFrame = touchView.frame
 //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
-
-
-    }
- //delete after development (start camera automatically)
-    @IBAction func onStartButtonPressed(sender: AnyObject) {
         self.wrapper.startCamera(self.imageView, alt: mainImageView)
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
@@ -57,7 +52,9 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
                 print(error)
             }
         }
+
     }
+
 
     //delete after development (start camera automatically)
     @IBAction func onStopButtonPressed(sender: AnyObject) {
@@ -79,7 +76,6 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
                     
                     let totalWalletValue = walletValue + wrapper.moneyFound
                     
-                    
                     // GetValue from Wrapper + wallet value
                     
                     // send walletvalue back to store in Plist
@@ -95,7 +91,9 @@ class ViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizer
     }
     
     func found() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.swiped(_:)))
+        self.wrapper.stopCamera();
+
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(_:)))
         self.view.addGestureRecognizer(gestureRecognizer)
     }
 }

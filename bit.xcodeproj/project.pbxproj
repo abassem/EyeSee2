@@ -13,7 +13,7 @@
 		181C75911CF2D2280066C8B2 /* Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C75901CF2D2280066C8B2 /* Money.m */; };
 		181C75971CF2EC4B0066C8B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
-		19F20A001CE1C5D600F201F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* ViewController.swift */; };
+		19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */; };
 		19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A011CE1C5D600F201F5 /* Main.storyboard */; };
 		19F20A051CE1C5D700F201F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A041CE1C5D700F201F5 /* Assets.xcassets */; };
 		19F20A081CE1C5D700F201F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19F209FF1CE1C5D600F201F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		19F20A021CE1C5D600F201F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19F20A041CE1C5D700F201F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19F20A071CE1C5D700F201F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */,
-				19F209FF1CE1C5D600F201F5 /* ViewController.swift */,
+				19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = Y8KX7SH47S;
+						DevelopmentTeam = VWX3JCB956;
 					};
 				};
 			};
@@ -238,7 +238,7 @@
 			files = (
 				181C75911CF2D2280066C8B2 /* Money.m in Sources */,
 				180AC48A1CE4765500641E02 /* DBPathRecognizer.swift in Sources */,
-				19F20A001CE1C5D600F201F5 /* ViewController.swift in Sources */,
+				19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */,
 				19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */,
 				181C75971CF2EC4B0066C8B2 /* HomeViewController.swift in Sources */,
 				180AC48E1CE597A100641E02 /* Model.xcdatamodeld in Sources */,
@@ -370,7 +370,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DC.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.D.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -392,7 +392,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DC.AA-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.D.AA-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
