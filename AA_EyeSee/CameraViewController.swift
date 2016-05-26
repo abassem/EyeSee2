@@ -11,20 +11,26 @@ import AVFoundation
 
 class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
 
+    @IBOutlet weak var rescanButtonOutlet: UIButton!
     //  @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
-
+    
     @IBOutlet weak var touchView: GestureRecognizer!
     
     var changeWalletMoney = true
     //moneyAmountFound
     
+    @IBAction func rescanMoney(sender: UIButton) {
+        self.viewDidLoad()
+        self.viewDidAppear(true)
+    }
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
+
 //        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
@@ -35,6 +41,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
 //        self.stopButton.hidden = true
         
         self.touchView.delegate = self
+    
         self.touchView.isAccessibilityElement = true
 //        self.touchView.accessibilityFrame = touchView.frame
 //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
@@ -55,7 +62,11 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         }
 
     }
-
+    override func viewDidAppear(animated: Bool) {
+        self.imageView.hidden=true
+        self.touchView.hidden=true
+        self.rescanButtonOutlet.hidden=true
+    }
 
     @IBAction func onStopButtonPressed(sender: AnyObject) {
         self.wrapper.stopCamera();
@@ -140,13 +151,13 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
     func found() {
-        // read out the money value
-        // stop Camera
-        // add gesture
+        self.touchView.hidden=false
+    self.rescanButtonOutlet.hidden=false
         if changeWalletMoney == true {
-            
+           
             let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(_:)))
             self.view.addGestureRecognizer(gestureRecognizer)
+     
             changeWalletMoney = false
 
         } else {

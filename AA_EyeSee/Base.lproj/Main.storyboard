@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="779-4q-gcX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TPY-Bf-Hc5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -54,29 +54,46 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STE-Xq-bxu" customClass="GestureRecognizer" customModule="AA_EyeSee" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                                <accessibility key="accessibilityConfiguration" label="Wallet">
+                                    <accessibilityTraits key="traits" causesPageTurn="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fka-dw-tux">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="Double Tap to rescan" label="rescan"/>
+                                <connections>
+                                    <action selector="rescanMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5jI-UJ-LVg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="STE-Xq-bxu" secondAttribute="trailing" id="1qW-ZN-tPe"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="22I-C7-K3p"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3G4-Mh-9T9"/>
+                            <constraint firstItem="Fka-dw-tux" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="3Wu-Q4-Gx4"/>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" id="3zI-ff-21q"/>
+                            <constraint firstItem="Fka-dw-tux" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" constant="8" symbolic="YES" id="4Ie-VG-BRP"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4hQ-Ig-qhH"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="trailing" secondItem="i7f-Vo-taQ" secondAttribute="trailing" id="6Hh-Pr-qci"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" constant="1" id="9wg-pk-KkS"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="trailing" secondItem="STE-Xq-bxu" secondAttribute="trailing" id="APa-nW-Lnq"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="Jmw-Jk-1Ye"/>
+                            <constraint firstItem="Fka-dw-tux" firstAttribute="bottom" secondItem="i7f-Vo-taQ" secondAttribute="bottom" id="L4o-QU-Xax"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NrR-s1-JqS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e0E-Fo-J67" secondAttribute="trailing" constant="21" id="RSs-ba-7Zg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" id="UNx-3c-a96"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UVc-a6-Pwh"/>
                             <constraint firstAttribute="bottom" secondItem="e0E-Fo-J67" secondAttribute="bottom" constant="20" symbolic="YES" id="Vrr-w9-6b7"/>
-                            <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" id="Vs6-Oo-6zO"/>
+                            <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="STE-Xq-bxu" secondAttribute="bottom" id="Vs6-Oo-6zO">
+                                <variation key="widthClass=compact" constant="181"/>
+                            </constraint>
                             <constraint firstItem="e0E-Fo-J67" firstAttribute="top" secondItem="i7f-Vo-taQ" secondAttribute="bottom" constant="2" id="ZJc-hZ-QKE"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="trailing" secondItem="i7f-Vo-taQ" secondAttribute="trailing" id="aEj-SE-SMB"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eWW-cT-myN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fka-dw-tux" secondAttribute="trailing" constant="-25" id="esW-9U-9jB"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="hQc-bN-L75"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="278" id="hk3-xg-H8w"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="i41-vK-v1j"/>
@@ -93,6 +110,7 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="i7f-Vo-taQ"/>
+                                <exclude reference="Fka-dw-tux"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="4hQ-Ig-qhH"/>
@@ -102,19 +120,24 @@
                                 <exclude reference="osg-vO-q5c"/>
                                 <exclude reference="22I-C7-K3p"/>
                                 <exclude reference="3G4-Mh-9T9"/>
+                                <exclude reference="6Hh-Pr-qci"/>
+                                <exclude reference="qYA-8n-Duw"/>
+                                <exclude reference="zMU-cX-aqn"/>
+                                <exclude reference="9wg-pk-KkS"/>
+                                <exclude reference="3Wu-Q4-Gx4"/>
+                                <exclude reference="4Ie-VG-BRP"/>
+                                <exclude reference="L4o-QU-Xax"/>
+                                <exclude reference="esW-9U-9jB"/>
                                 <exclude reference="RSs-ba-7Zg"/>
                                 <exclude reference="Vrr-w9-6b7"/>
                                 <exclude reference="Vs6-Oo-6zO"/>
                                 <exclude reference="ZJc-hZ-QKE"/>
-                                <exclude reference="9wg-pk-KkS"/>
-                                <exclude reference="6Hh-Pr-qci"/>
-                                <exclude reference="qYA-8n-Duw"/>
-                                <exclude reference="zMU-cX-aqn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="i7f-Vo-taQ"/>
+                                <include reference="Fka-dw-tux"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="4hQ-Ig-qhH"/>
@@ -132,22 +155,26 @@
                                 <exclude reference="1qW-ZN-tPe"/>
                                 <include reference="22I-C7-K3p"/>
                                 <include reference="3G4-Mh-9T9"/>
+                                <include reference="6Hh-Pr-qci"/>
+                                <exclude reference="NrR-s1-JqS"/>
+                                <exclude reference="eWW-cT-myN"/>
+                                <exclude reference="qYA-8n-Duw"/>
+                                <exclude reference="zMU-cX-aqn"/>
+                                <include reference="9wg-pk-KkS"/>
+                                <exclude reference="APa-nW-Lnq"/>
+                                <exclude reference="hk3-xg-H8w"/>
+                                <exclude reference="ucd-kn-CpP"/>
+                                <exclude reference="zqu-Lm-Cvh"/>
+                                <include reference="3Wu-Q4-Gx4"/>
+                                <include reference="4Ie-VG-BRP"/>
+                                <include reference="L4o-QU-Xax"/>
+                                <include reference="esW-9U-9jB"/>
                                 <exclude reference="UNx-3c-a96"/>
                                 <exclude reference="3zI-ff-21q"/>
                                 <include reference="RSs-ba-7Zg"/>
                                 <include reference="Vrr-w9-6b7"/>
                                 <include reference="Vs6-Oo-6zO"/>
                                 <include reference="ZJc-hZ-QKE"/>
-                                <include reference="9wg-pk-KkS"/>
-                                <exclude reference="APa-nW-Lnq"/>
-                                <exclude reference="hk3-xg-H8w"/>
-                                <exclude reference="ucd-kn-CpP"/>
-                                <exclude reference="zqu-Lm-Cvh"/>
-                                <include reference="6Hh-Pr-qci"/>
-                                <exclude reference="NrR-s1-JqS"/>
-                                <exclude reference="eWW-cT-myN"/>
-                                <exclude reference="qYA-8n-Duw"/>
-                                <exclude reference="zMU-cX-aqn"/>
                             </mask>
                         </variation>
                     </view>
@@ -155,6 +182,7 @@
                     <connections>
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
                         <outlet property="mainImageView" destination="i7f-Vo-taQ" id="DKr-Fd-zCK"/>
+                        <outlet property="rescanButtonOutlet" destination="Fka-dw-tux" id="m44-dN-7cp"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <outlet property="touchView" destination="STE-Xq-bxu" id="jbW-sc-z0w"/>
                         <segue destination="W16-0j-qc0" kind="unwind" identifier="toHomeVC" unwindAction="unwindToContainerVC:" id="3G7-tD-RWS"/>
@@ -163,7 +191,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="W16-0j-qc0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2585" y="394"/>
+            <point key="canvasLocation" x="2584.5" y="394"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="AOh-T3-HoV">
@@ -179,7 +207,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-bn-Uw7">
                                 <rect key="frame" x="0.0" y="264" width="600" height="336"/>
-                                <state key="normal" title="Start Scanning Money. Press on the upper part of the screen to know your Balance"/>
+                                <accessibility key="accessibilityConfiguration" hint="Scan Money" label="Scan">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Scan"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Uzo-1m-09p"/>
                                 </connections>
@@ -214,24 +245,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgd-0u-qVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1889" y="394"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="H17-zq-fMe">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="779-4q-gcX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fj7-Bj-CTg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="TPY-Bf-Hc5" kind="relationship" relationship="rootViewController" id="06R-Hx-xlE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SKp-Fu-WQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1141" y="394"/>
         </scene>
     </scenes>
 </document>
