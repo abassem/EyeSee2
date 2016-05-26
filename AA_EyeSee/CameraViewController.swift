@@ -10,13 +10,15 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
-
+    
     @IBOutlet weak var rescanButtonOutlet: UIButton!
     //  @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
+    var foundSomething = false
+    var scanTimer : NSTimer!
     
     @IBOutlet weak var touchView: GestureRecognizer!
     
@@ -24,27 +26,38 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     //moneyAmountFound
     
     @IBAction func rescanMoney(sender: UIButton) {
-        self.viewDidLoad()
-        self.viewDidAppear(true)
+        self.beginScanning()
     }
-//    let videoCamera : CvVideoCamera?
+    //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
-
-//        self.view.accessibilityElementsHidden = true
+        super.viewDidLoad()
+        
+        self.touchView.delegate = self
+        self.touchView.isAccessibilityElement = true
+        
+        self.beginScanning()
+        
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
+    func beginScanning(){
+        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(foundSmething), userInfo: nil, repeats: true)
+        //        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
         wrapper.initMoney()
-        super.viewDidLoad()
         
-//        self.startCapture.hidden = true
-//        self.stopButton.hidden = true
         
-        self.touchView.delegate = self
-    
-        self.touchView.isAccessibilityElement = true
-//        self.touchView.accessibilityFrame = touchView.frame
-//        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
+        //        self.startCapture.hidden = true
+        //        self.stopButton.hidden = true
+        
+        
+        //        self.touchView.accessibilityFrame = touchView.frame
+        //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
         self.wrapper.startCamera(self.imageView, alt: mainImageView)
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
@@ -60,14 +73,11 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                 print(error)
             }
         }
-
-    }
-    override func viewDidAppear(animated: Bool) {
         self.imageView.hidden=true
         self.touchView.hidden=true
         self.rescanButtonOutlet.hidden=true
     }
-
+    
     @IBAction func onStopButtonPressed(sender: AnyObject) {
         self.wrapper.stopCamera();
     }
@@ -84,14 +94,14 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             
             
             if let gesture = gesture as? UISwipeGestureRecognizer{
-              
+                
                 //left direction
                 
                 if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     
-
+                    
                     let value = NSMutableDictionary(contentsOfFile: path)
-        
+                    
                     let walletValue = value!.objectForKey("Wallet") as! Int
                     print(walletValue)
                     // get balance from Plist = walletValue
@@ -109,15 +119,15 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
-
+                        
                     } else {
                         print("it fails")
                     }
-
+                    
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
-
+                    
                     //right direction
-
+                    
                 } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
                     
                     let value = NSMutableDictionary(contentsOfFile: path)
@@ -139,12 +149,12 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
-
+                        
                     } else {
                         print("it fails")
                     }
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
-
+                    
                 }
             }
         }
@@ -152,18 +162,26 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     
     func found() {
         self.touchView.hidden=false
-    self.rescanButtonOutlet.hidden=false
+        self.rescanButtonOutlet.hidden=false
+        self.foundSomething=true
         if changeWalletMoney == true {
-           
+            
             let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(_:)))
             self.view.addGestureRecognizer(gestureRecognizer)
-     
+            
             changeWalletMoney = false
-
+            
         } else {
             changeWalletMoney = true
         }
     }
-
+    func foundSmething() {
+        
+        if self.foundSomething==false {
+            //self.
+        }else{
+            scanTimer.invalidate()
+        }
+    }
 }
 
