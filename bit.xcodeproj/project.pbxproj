@@ -13,6 +13,7 @@
 		181C75911CF2D2280066C8B2 /* Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C75901CF2D2280066C8B2 /* Money.m */; };
 		181C75971CF2EC4B0066C8B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */; };
 		181C759D1CF42CD00066C8B2 /* Wallet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181C759C1CF42CD00066C8B2 /* Wallet.plist */; };
+		19A00C8B1CF6C57B000F639A /* scanning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19A00C8A1CF6C57B000F639A /* scanning.mp3 */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
 		19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */; };
 		19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A011CE1C5D600F201F5 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		181C75901CF2D2280066C8B2 /* Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money.m; sourceTree = "<group>"; };
 		181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		181C759C1CF42CD00066C8B2 /* Wallet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Wallet.plist; path = ../Wallet.plist; sourceTree = "<group>"; };
+		19A00C8A1CF6C57B000F639A /* scanning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanning.mp3; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				18B152FA1CE30DB8008FF070 /* ViewController */,
 				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 				19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */,
+				19A00C8A1CF6C57B000F639A /* scanning.mp3 */,
 				180AC48C1CE597A100641E02 /* Model.xcdatamodeld */,
 				19F20A041CE1C5D700F201F5 /* Assets.xcassets */,
 				19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */,
@@ -226,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A00C8B1CF6C57B000F639A /* scanning.mp3 in Resources */,
 				19F20A081CE1C5D700F201F5 /* LaunchScreen.storyboard in Resources */,
 				19F20A051CE1C5D700F201F5 /* Assets.xcassets in Resources */,
 				19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */,

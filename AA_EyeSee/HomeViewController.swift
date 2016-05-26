@@ -55,6 +55,8 @@ class HomeViewController: UIViewController {
         {
             self.balanceLabel.text = "You have \(walletValue) RM"
         }
+        
+        
 
     }
 

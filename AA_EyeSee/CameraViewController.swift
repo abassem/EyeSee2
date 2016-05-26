@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
+    @IBOutlet weak var scanningLabel: UILabel!
     
     @IBOutlet weak var rescanButtonOutlet: UIButton!
     //  @IBOutlet weak var transpartentView: UIView!
@@ -19,7 +20,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     @IBOutlet weak var mainImageView: UIImageView!
     var foundSomething = false
     var scanTimer : NSTimer!
-    
+    var audioPlayer: AVAudioPlayer!
+
     @IBOutlet weak var touchView: GestureRecognizer!
     
     var changeWalletMoney = true
@@ -45,7 +47,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
     func beginScanning(){
-        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(foundSmething), userInfo: nil, repeats: true)
+        self.scanningLabel.hidden=true
+        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(foundSmething), userInfo: nil, repeats: true)
         //        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
@@ -161,6 +164,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
     func found() {
+
         self.touchView.hidden=false
         self.rescanButtonOutlet.hidden=false
         self.foundSomething=true
@@ -178,7 +182,17 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     func foundSmething() {
         
         if self.foundSomething==false {
-            //self.
+            self.scanningLabel.hidden=false
+            
+            let scanningSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("scanning", ofType: "mp3")!)
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOfURL:scanningSound)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }catch {
+                print("Error getting the audio file")
+            }
+            
         }else{
             scanTimer.invalidate()
         }
