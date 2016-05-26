@@ -69,6 +69,28 @@
                                     <action selector="rescanMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5jI-UJ-LVg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaC-9C-G3P">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="Scanning">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="Kea-hS-KDs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Kea-hS-KDs"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Kea-hS-KDs"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,8 +103,10 @@
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4hQ-Ig-qhH"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="trailing" secondItem="i7f-Vo-taQ" secondAttribute="trailing" id="6Hh-Pr-qci"/>
                             <constraint firstAttribute="trailing" secondItem="KAe-tH-9m4" secondAttribute="trailing" id="9Ld-3L-HYu"/>
+                            <constraint firstItem="UaC-9C-G3P" firstAttribute="leading" secondItem="STE-Xq-bxu" secondAttribute="leading" id="9dM-dd-hhC"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" constant="1" id="9wg-pk-KkS"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="trailing" secondItem="STE-Xq-bxu" secondAttribute="trailing" id="APa-nW-Lnq"/>
+                            <constraint firstItem="UaC-9C-G3P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="11" id="FDy-zg-2Sb"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="i7f-Vo-taQ" secondAttribute="leading" id="Jmw-Jk-1Ye"/>
                             <constraint firstItem="Fka-dw-tux" firstAttribute="bottom" secondItem="i7f-Vo-taQ" secondAttribute="bottom" id="L4o-QU-Xax"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NrR-s1-JqS"/>
@@ -103,6 +127,7 @@
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="osg-vO-q5c"/>
                             <constraint firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="puE-XF-HhY"/>
                             <constraint firstItem="STE-Xq-bxu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qYA-8n-Duw"/>
+                            <constraint firstItem="UaC-9C-G3P" firstAttribute="trailing" secondItem="e0E-Fo-J67" secondAttribute="trailing" id="tr7-od-3Cy"/>
                             <constraint firstItem="i7f-Vo-taQ" firstAttribute="bottom" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="ucd-kn-CpP"/>
                             <constraint firstItem="KAe-tH-9m4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vT7-Jp-Nnh"/>
                             <constraint firstAttribute="top" secondItem="KAe-tH-9m4" secondAttribute="bottom" id="vmx-nL-Hsz"/>
@@ -114,6 +139,7 @@
                             <mask key="subviews">
                                 <exclude reference="i7f-Vo-taQ"/>
                                 <exclude reference="Fka-dw-tux"/>
+                                <exclude reference="UaC-9C-G3P"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="4hQ-Ig-qhH"/>
@@ -121,6 +147,9 @@
                                 <exclude reference="aEj-SE-SMB"/>
                                 <exclude reference="hQc-bN-L75"/>
                                 <exclude reference="osg-vO-q5c"/>
+                                <exclude reference="9dM-dd-hhC"/>
+                                <exclude reference="FDy-zg-2Sb"/>
+                                <exclude reference="tr7-od-3Cy"/>
                                 <exclude reference="22I-C7-K3p"/>
                                 <exclude reference="3G4-Mh-9T9"/>
                                 <exclude reference="6Hh-Pr-qci"/>
@@ -141,6 +170,7 @@
                             <mask key="subviews">
                                 <include reference="i7f-Vo-taQ"/>
                                 <include reference="Fka-dw-tux"/>
+                                <include reference="UaC-9C-G3P"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="4hQ-Ig-qhH"/>
@@ -155,6 +185,9 @@
                                 <exclude reference="vT7-Jp-Nnh"/>
                                 <exclude reference="vmx-nL-Hsz"/>
                                 <exclude reference="wtL-DB-0eH"/>
+                                <include reference="9dM-dd-hhC"/>
+                                <include reference="FDy-zg-2Sb"/>
+                                <include reference="tr7-od-3Cy"/>
                                 <exclude reference="1qW-ZN-tPe"/>
                                 <include reference="22I-C7-K3p"/>
                                 <include reference="3G4-Mh-9T9"/>
@@ -186,6 +219,7 @@
                         <outlet property="imageView" destination="KAe-tH-9m4" id="fKw-d8-rio"/>
                         <outlet property="mainImageView" destination="i7f-Vo-taQ" id="DKr-Fd-zCK"/>
                         <outlet property="rescanButtonOutlet" destination="Fka-dw-tux" id="m44-dN-7cp"/>
+                        <outlet property="scanningLabel" destination="UaC-9C-G3P" id="RVp-zO-7fU"/>
                         <outlet property="stopButton" destination="e0E-Fo-J67" id="iht-OF-xOs"/>
                         <outlet property="touchView" destination="STE-Xq-bxu" id="jbW-sc-z0w"/>
                         <segue destination="W16-0j-qc0" kind="unwind" identifier="toHomeVC" unwindAction="unwindToContainerVC:" id="3G7-tD-RWS"/>
