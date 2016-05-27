@@ -13,6 +13,8 @@
 		181C75911CF2D2280066C8B2 /* Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C75901CF2D2280066C8B2 /* Money.m */; };
 		181C75971CF2EC4B0066C8B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */; };
 		181C759D1CF42CD00066C8B2 /* Wallet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181C759C1CF42CD00066C8B2 /* Wallet.plist */; };
+		18B836421CF7F96400EA8442 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */; };
+		18B836431CF7F96400EA8442 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B836411CF7F96400EA8442 /* Note.swift */; };
 		19A00C8B1CF6C57B000F639A /* scanning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19A00C8A1CF6C57B000F639A /* scanning.mp3 */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
 		19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */; };
@@ -39,6 +41,8 @@
 		181C75901CF2D2280066C8B2 /* Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money.m; sourceTree = "<group>"; };
 		181C75961CF2EC4B0066C8B2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		181C759C1CF42CD00066C8B2 /* Wallet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Wallet.plist; path = ../Wallet.plist; sourceTree = "<group>"; };
+		18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "Models/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18B836411CF7F96400EA8442 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		19A00C8A1CF6C57B000F639A /* scanning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanning.mp3; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		18B8363B1CF7F72D00EA8442 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */,
+				18B836411CF7F96400EA8442 /* Note.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		19F209F11CE1C5D600F201F5 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 		19F209FC1CE1C5D600F201F5 /* AA_EyeSee */ = {
 			isa = PBXGroup;
 			children = (
+				18B8363B1CF7F72D00EA8442 /* Models */,
 				180AC4871CE4764100641E02 /* Class */,
 				6A629BB81CE4547E00FFB34B /* opencv2.framework */,
 				18B152FA1CE30DB8008FF070 /* ViewController */,
@@ -202,7 +216,7 @@
 				TargetAttributes = {
 					19F209F91CE1C5D600F201F5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VWX3JCB956;
+						DevelopmentTeam = Y8KX7SH47S;
 					};
 				};
 			};
@@ -249,9 +263,11 @@
 				19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */,
 				19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */,
 				181C75971CF2EC4B0066C8B2 /* HomeViewController.swift in Sources */,
+				18B836431CF7F96400EA8442 /* Note.swift in Sources */,
 				180AC48E1CE597A100641E02 /* Model.xcdatamodeld in Sources */,
 				180AC48B1CE4765500641E02 /* GestureRecognizer.swift in Sources */,
 				19F20A321CE1C62000F201F5 /* OpenCVWrapper.mm in Sources */,
+				18B836421CF7F96400EA8442 /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +394,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dcss-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DCDC-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
@@ -400,7 +416,7 @@
 				INFOPLIST_FILE = AA_EyeSee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dcss-EyeSee";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DCDC-EyeSee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
