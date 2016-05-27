@@ -15,6 +15,7 @@
 		181C759D1CF42CD00066C8B2 /* Wallet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181C759C1CF42CD00066C8B2 /* Wallet.plist */; };
 		18B836421CF7F96400EA8442 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */; };
 		18B836431CF7F96400EA8442 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B836411CF7F96400EA8442 /* Note.swift */; };
+		19A00C8B1CF6C57B000F639A /* scanning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19A00C8A1CF6C57B000F639A /* scanning.mp3 */; };
 		19F209FE1CE1C5D600F201F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */; };
 		19F20A001CE1C5D600F201F5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */; };
 		19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F20A011CE1C5D600F201F5 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		181C759C1CF42CD00066C8B2 /* Wallet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Wallet.plist; path = ../Wallet.plist; sourceTree = "<group>"; };
 		18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "Models/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18B836411CF7F96400EA8442 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
+		19A00C8A1CF6C57B000F639A /* scanning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanning.mp3; sourceTree = "<group>"; };
 		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				18B152FA1CE30DB8008FF070 /* ViewController */,
 				19F20A011CE1C5D600F201F5 /* Main.storyboard */,
 				19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */,
+				19A00C8A1CF6C57B000F639A /* scanning.mp3 */,
 				180AC48C1CE597A100641E02 /* Model.xcdatamodeld */,
 				19F20A041CE1C5D700F201F5 /* Assets.xcassets */,
 				19F20A061CE1C5D700F201F5 /* LaunchScreen.storyboard */,
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A00C8B1CF6C57B000F639A /* scanning.mp3 in Resources */,
 				19F20A081CE1C5D700F201F5 /* LaunchScreen.storyboard in Resources */,
 				19F20A051CE1C5D700F201F5 /* Assets.xcassets in Resources */,
 				19F20A031CE1C5D600F201F5 /* Main.storyboard in Resources */,

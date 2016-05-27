@@ -101,9 +101,9 @@
         [self checkImageWorks:capturedImage:money];
          }
     } else {
-        
-        [self stopCamera];
         [self.delegate found];
+        [self stopCamera];
+        
     }
 }
 

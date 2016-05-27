@@ -48,6 +48,8 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        self.view.setNeedsDisplay()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! String
         let path = documentsDirectory + "/Wallet"
@@ -55,9 +57,10 @@ class HomeViewController: UIViewController {
         
         if let walletValue = value!.objectForKey("Wallet") as? NSNumber
         {
-            self.balanceLabel.text = "You Currently have \(walletValue) RM, Press on the Lower part of the screen to Scan again"
+            self.balanceLabel.text = "You have \(walletValue) RM"
         }
         
+
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Wallet")
@@ -67,6 +70,7 @@ class HomeViewController: UIViewController {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+
     }
 
     @IBOutlet weak var scannerButtonPressed: UIButton!

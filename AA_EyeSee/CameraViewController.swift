@@ -11,12 +11,17 @@ import AVFoundation
 import CoreData
 
 class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
-
+    @IBOutlet weak var scanningLabel: UILabel!
+    
+    @IBOutlet weak var rescanButtonOutlet: UIButton!
     //  @IBOutlet weak var transpartentView: UIView!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startCapture: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
+    var foundSomething = false
+    var scanTimer : NSTimer!
+    var audioPlayer: AVAudioPlayer!
 
     @IBOutlet weak var touchView: GestureRecognizer!
     
@@ -26,23 +31,55 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     var managedContext: NSManagedObjectContext!
     //moneyAmountFound
     
-//    let videoCamera : CvVideoCamera?
+    @IBAction func rescanMoney(sender: UIButton) {
+        self.beginScanning()
+    }
+    //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
+
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         managedContext = appDelegate.managedObjectContext
         
         
 //        self.view.accessibilityElementsHidden = true
-        self.wrapper = OpenCVWrapper()
-        wrapper.delegate = self
-        wrapper.initMoney()
+
         super.viewDidLoad()
         
         self.touchView.delegate = self
         self.touchView.isAccessibilityElement = true
+        
+        self.beginScanning()
+        
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
+    func beginScanning(){
+        self.scanningLabel.hidden=true
+        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(foundSmething), userInfo: nil, repeats: true)
+        //        self.view.accessibilityElementsHidden = true
+>>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
+        self.wrapper = OpenCVWrapper()
+        wrapper.delegate = self
+        wrapper.initMoney()
+        
+<<<<<<< HEAD
+        self.touchView.delegate = self
+        self.touchView.isAccessibilityElement = true
 //        self.touchView.accessibilityFrame = touchView.frame
 //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
+=======
+        
+        //        self.startCapture.hidden = true
+        //        self.stopButton.hidden = true
+        
+        
+        //        self.touchView.accessibilityFrame = touchView.frame
+        //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
+>>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
         self.wrapper.startCamera(self.imageView, alt: mainImageView)
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
@@ -58,9 +95,14 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                 print(error)
             }
         }
+<<<<<<< HEAD
+=======
+        self.imageView.hidden=true
+        self.touchView.hidden=true
+        self.rescanButtonOutlet.hidden=true
+>>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
     }
-
-
+    
     @IBAction func onStopButtonPressed(sender: AnyObject) {
         self.wrapper.stopCamera();
     }
@@ -77,14 +119,14 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             
             
             if let gesture = gesture as? UISwipeGestureRecognizer{
-              
+                
                 //left direction
                 
                 if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
                     
-
+                    
                     let value = NSMutableDictionary(contentsOfFile: path)
-        
+                    
                     let walletValue = value!.objectForKey("Wallet") as! Int
                     print(walletValue)
                     // get balance from Plist = walletValue
@@ -104,15 +146,15 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     if works == true {
                         print("it works")
-
+                        
                     } else {
                         print("it fails")
                     }
-
+                    
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
-
+                    
                     //right direction
-
+                    
                 } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
                     
                     let value = NSMutableDictionary(contentsOfFile: path)
@@ -142,25 +184,32 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                         print("it fails")
                     }
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
                 }
             }
         }
     }
     
     func found() {
-        // read out the money value
-        // stop Camera
-        // add gesture
+
+        self.touchView.hidden=false
+        self.rescanButtonOutlet.hidden=false
+        self.foundSomething=true
         if changeWalletMoney == true {
             
             let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(_:)))
             self.view.addGestureRecognizer(gestureRecognizer)
+            
             changeWalletMoney = false
-
+            
         } else {
             changeWalletMoney = true
         }
     }
+<<<<<<< HEAD
     
 
     func saveValue(){
@@ -198,4 +247,25 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
 } // final closing bracket
+=======
+    func foundSmething() {
+        
+        if self.foundSomething==false {
+            self.scanningLabel.hidden=false
+            
+            let scanningSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("scanning", ofType: "mp3")!)
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOfURL:scanningSound)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }catch {
+                print("Error getting the audio file")
+            }
+            
+        }else{
+            scanTimer.invalidate()
+        }
+    }
+}
+>>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
 
