@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
 
@@ -19,20 +20,24 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
 
     @IBOutlet weak var touchView: GestureRecognizer!
     
+    var notes = [Note]()
+    
     var changeWalletMoney = true
+    var managedContext: NSManagedObjectContext!
     //moneyAmountFound
     
 //    let videoCamera : CvVideoCamera?
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        managedContext = appDelegate.managedObjectContext
+        
+        
 //        self.view.accessibilityElementsHidden = true
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
         wrapper.initMoney()
         super.viewDidLoad()
-        
-//        self.startCapture.hidden = true
-//        self.stopButton.hidden = true
         
         self.touchView.delegate = self
         self.touchView.isAccessibilityElement = true
@@ -53,7 +58,6 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                 print(error)
             }
         }
-
     }
 
 
@@ -94,6 +98,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     dict.setObject(totalWalletValue, forKey: "Wallet")
                     
+                    self.saveValue()
+                    
                     let works = dict.writeToFile(path, atomically: true) as Bool
                     
                     if works == true {
@@ -124,16 +130,18 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     let dict: NSMutableDictionary = [:]
                     
                     dict.setObject(totalWalletValue, forKey: "Wallet")
+                    
+                    self.deductValue()
+                    
                     let works = dict.writeToFile(path, atomically: true) as Bool
                     
                     if works == true {
                         print("it works")
-
+                        
                     } else {
                         print("it fails")
                     }
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
-
                 }
             }
         }
@@ -153,6 +161,41 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             changeWalletMoney = true
         }
     }
+    
 
-}
+    func saveValue(){
+        
+        let note = NSEntityDescription.insertNewObjectForEntityForName("Note", inManagedObjectContext: managedContext) as? Note
+        
+        note?.value = NSNumber(int: wrapper.moneyFound)
+        
+        do {
+            try managedContext.save()
+            
+        } catch let error as NSError  {
+            
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func deductValue(){
+        let request = NSFetchRequest(entityName: "Note")
+        
+        request.predicate = NSPredicate(format: "value = %@", NSNumber(int: wrapper.moneyFound))
+        
+        do {
+            notes = try managedContext.executeFetchRequest(request) as! [Note]
+        }catch{
+            print("failed to fetch request")
+        }
+        
+        if(notes.count > 0){
+            managedContext.deleteObject(notes.first!)
+        }else{
+            print("note not found")
+        }
+        
+    }
+    
+} // final closing bracket
 

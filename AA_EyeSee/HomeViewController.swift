@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
 
@@ -14,6 +15,9 @@ class HomeViewController: UIViewController {
     @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
         
     }
+    
+    var wallet = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
@@ -54,6 +58,15 @@ class HomeViewController: UIViewController {
             self.balanceLabel.text = "You Currently have \(walletValue) RM, Press on the Lower part of the screen to Scan again"
         }
         
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Wallet")
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            wallet = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
 
     @IBOutlet weak var scannerButtonPressed: UIButton!
