@@ -59,19 +59,19 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     
     func beginScanning(){
         self.scanningLabel.hidden=true
-        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(foundSmething), userInfo: nil, repeats: true)
+        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(didfindSomething), userInfo: nil, repeats: true)
         //        self.view.accessibilityElementsHidden = true
->>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
+
         self.wrapper = OpenCVWrapper()
         wrapper.delegate = self
         wrapper.initMoney()
         
-<<<<<<< HEAD
+
         self.touchView.delegate = self
         self.touchView.isAccessibilityElement = true
 //        self.touchView.accessibilityFrame = touchView.frame
 //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
-=======
+
         
         //        self.startCapture.hidden = true
         //        self.stopButton.hidden = true
@@ -79,7 +79,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         
         //        self.touchView.accessibilityFrame = touchView.frame
         //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
->>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
+
         self.wrapper.startCamera(self.imageView, alt: mainImageView)
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
@@ -95,12 +95,11 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                 print(error)
             }
         }
-<<<<<<< HEAD
-=======
+
         self.imageView.hidden=true
         self.touchView.hidden=true
         self.rescanButtonOutlet.hidden=true
->>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
+
     }
     
     @IBAction func onStopButtonPressed(sender: AnyObject) {
@@ -184,10 +183,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                         print("it fails")
                     }
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
-<<<<<<< HEAD
-=======
-                    
->>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
+
                 }
             }
         }
@@ -209,9 +205,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             changeWalletMoney = true
         }
     }
-<<<<<<< HEAD
-    
 
+    
     func saveValue(){
         
         let note = NSEntityDescription.insertNewObjectForEntityForName("Note", inManagedObjectContext: managedContext) as? Note
@@ -246,9 +241,9 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         
     }
     
-} // final closing bracket
-=======
-    func foundSmething() {
+ // final closing bracket
+
+    func didfindSomething() {
         
         if self.foundSomething==false {
             self.scanningLabel.hidden=false
@@ -266,6 +261,6 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
             scanTimer.invalidate()
         }
     }
+
 }
->>>>>>> 246717e1fd035d0e69db81eaa92db74a390aa4f1
 
