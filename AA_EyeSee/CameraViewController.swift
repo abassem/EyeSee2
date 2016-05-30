@@ -116,7 +116,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
     }
     
     @IBAction func onStopButtonPressed(sender: AnyObject) {
-self.beginScanning()
+        self.wrapper.stopCamera();
+        self.beginScanning()
     }
     
     //handle swipe guestures
