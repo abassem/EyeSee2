@@ -44,7 +44,7 @@
 		18B836401CF7F96400EA8442 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "Models/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18B836411CF7F96400EA8442 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
 		19A00C8A1CF6C57B000F639A /* scanning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanning.mp3; sourceTree = "<group>"; };
-		19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AA_EyeSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F209FA1CE1C5D600F201F5 /* EyeSee2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeSee2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F209FD1CE1C5D600F201F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F209FF1CE1C5D600F201F5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		19F20A021CE1C5D600F201F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		19F209FB1CE1C5D600F201F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */,
+				19F209FA1CE1C5D600F201F5 /* EyeSee2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 			);
 			name = AA_EyeSee;
 			productName = AA_EyeSee;
-			productReference = 19F209FA1CE1C5D600F201F5 /* AA_EyeSee.app */;
+			productReference = 19F209FA1CE1C5D600F201F5 /* EyeSee2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +220,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "bit" */;
+			buildConfigurationList = 19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "EyeSee2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -395,7 +395,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DCDdC-EyeSee";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EyeSee2;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -417,7 +417,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DCDdC-EyeSee";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EyeSee2;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AA_EyeSee-Bridging-Header.h";
 			};
@@ -426,7 +426,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "bit" */ = {
+		19F209F51CE1C5D600F201F5 /* Build configuration list for PBXProject "EyeSee2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19F20A201CE1C5D700F201F5 /* Debug */,

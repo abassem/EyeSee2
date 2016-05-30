@@ -59,7 +59,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0E-Fo-J67">
                                 <rect key="frame" x="268" y="550" width="91" height="30"/>
-                                <state key="normal" title="Stop Capture"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="299" y="550" width="30" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="onStopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4aL-bD-p5q"/>
                                 </connections>

@@ -55,7 +55,7 @@
             BlueprintIdentifier = "19F209F91CE1C5D600F201F5"
             BuildableName = "AA_EyeSee.app"
             BlueprintName = "AA_EyeSee"
-            ReferencedContainer = "container:bit.xcodeproj">
+            ReferencedContainer = "container:EyeSee2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "19F209F91CE1C5D600F201F5"
             BuildableName = "AA_EyeSee.app"
             BlueprintName = "AA_EyeSee"
-            ReferencedContainer = "container:bit.xcodeproj">
+            ReferencedContainer = "container:EyeSee2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

@@ -116,8 +116,8 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
     }
     
     @IBAction func onStopButtonPressed(sender: AnyObject) {
-        self.wrapper.stopCamera();
-        self.beginScanning()
+//        self.wrapper.stopCamera()
+//      self.performSegueWithIdentifier("toHomeVC", sender: self)
     }
     
     //handle swipe guestures
@@ -198,7 +198,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
         self.deductValueLabel.hidden=false
         self.rescanButtonOutlet.hidden=false
         self.mainImageView.hidden=true
-        let speechString = "you found \(wrapper.moneyFound) Ring it"
+        let speechString = "you found \(wrapper.moneyFound) Ring it. Choose an Action!"
         let speechUtterance = AVSpeechUtterance(string: speechString)
         
         speechSynthesizer.speakUtterance(speechUtterance)
