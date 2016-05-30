@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreData
 
-class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureRecognizerDelegate {
+class CameraViewController: UIViewController, OpenCVWrapperDelegate {
     @IBOutlet weak var scanningLabel: UILabel!
     
     @IBOutlet weak var rescanButtonOutlet: UIButton!
@@ -23,7 +23,6 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     var scanTimer : NSTimer!
     var audioPlayer: AVAudioPlayer!
 
-    @IBOutlet weak var touchView: GestureRecognizer!
     
     var notes = [Note]()
     
@@ -35,6 +34,20 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         self.beginScanning()
     }
     //    let videoCamera : CvVideoCamera?
+    
+    @IBOutlet weak var deductValueLabel: UIButton!
+    @IBAction func onPressDeductButton(sender: UIButton) {
+        self.deductValue()
+        self.deductFromWallet()
+    }
+    
+    @IBOutlet weak var addValueLabel: UIButton!
+
+    @IBAction func onPressAddValue(sender: UIButton) {
+        self.saveValue()
+        self.addToWallet()
+    }
+    
     var wrapper : OpenCVWrapper!
     override func viewDidLoad() {
 
@@ -42,13 +55,12 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         managedContext = appDelegate.managedObjectContext
         
         
-//        self.view.accessibilityElementsHidden = true
+
 
         super.viewDidLoad()
         
-        self.touchView.delegate = self
-        self.touchView.isAccessibilityElement = true
-        
+   
+   
         self.beginScanning()
         
         
@@ -58,8 +70,10 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
     func beginScanning(){
+        self.addValueLabel.hidden=true
+        self.deductValueLabel.hidden=true
         self.scanningLabel.hidden=true
-        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(didfindSomething), userInfo: nil, repeats: true)
+        self.scanTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(didfindSomething), userInfo: nil, repeats: true)
         //        self.view.accessibilityElementsHidden = true
 
         self.wrapper = OpenCVWrapper()
@@ -67,8 +81,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         wrapper.initMoney()
         
 
-        self.touchView.delegate = self
-        self.touchView.isAccessibilityElement = true
+
 //        self.touchView.accessibilityFrame = touchView.frame
 //        self.touchView.accessibilityTraits = UIAccessibilityTraitButton
 
@@ -97,7 +110,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         }
 
         self.imageView.hidden=true
-        self.touchView.hidden=true
+   
         self.rescanButtonOutlet.hidden=true
 
     }
@@ -107,23 +120,11 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
     }
     
     //handle swipe guestures
-    func swiped(gesture: UIGestureRecognizer) {
+    func addToWallet(){
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths[0] as! String
+        let path = documentsDirectory + "/Wallet"
         
-        if gesture.isKindOfClass(UISwipeGestureRecognizer){
-            
-            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-            let documentsDirectory = paths[0] as! String
-            let path = documentsDirectory + "/Wallet"
-            
-            
-            
-            if let gesture = gesture as? UISwipeGestureRecognizer{
-                
-                //left direction
-                
-                if gesture.direction == .Left && gesture.numberOfTouchesRequired == 1 {
-                    
-                    
                     let value = NSMutableDictionary(contentsOfFile: path)
                     
                     let walletValue = value!.objectForKey("Wallet") as! Int
@@ -139,8 +140,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     dict.setObject(totalWalletValue, forKey: "Wallet")
                     
-                    self.saveValue()
-                    
+        
                     let works = dict.writeToFile(path, atomically: true) as Bool
                     
                     if works == true {
@@ -153,9 +153,14 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
                     
                     //right direction
-                    
-                } else if gesture.direction == .Right && gesture.numberOfTouchesRequired == 1 {
-                    
+        
+    }
+    func deductFromWallet() {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths[0] as! String
+        let path = documentsDirectory + "/Wallet"
+        
+    
                     let value = NSMutableDictionary(contentsOfFile: path)
                     
                     let walletValue = value!.objectForKey("Wallet") as! Int
@@ -164,16 +169,13 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     
                     let totalWalletValue = NSNumber(int: Int32(walletValue) - wrapper.moneyFound)
                     
-                    let path = documentsDirectory + "/Wallet"
-                    
+        
                     let resultDictionary = NSMutableDictionary(contentsOfFile: path)
                     print(resultDictionary)
                     let dict: NSMutableDictionary = [:]
                     
                     dict.setObject(totalWalletValue, forKey: "Wallet")
-                    
-                    self.deductValue()
-                    
+        
                     let works = dict.writeToFile(path, atomically: true) as Bool
                     
                     if works == true {
@@ -185,19 +187,19 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
                     self.performSegueWithIdentifier("toHomeVC", sender: self)
 
                 }
-            }
-        }
-    }
     
+
+
+
     func found() {
 
-        self.touchView.hidden=false
+        self.addValueLabel.hidden=false
+        self.deductValueLabel.hidden=false
         self.rescanButtonOutlet.hidden=false
         self.foundSomething=true
         if changeWalletMoney == true {
             
-            let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(_:)))
-            self.view.addGestureRecognizer(gestureRecognizer)
+           
             
             changeWalletMoney = false
             
@@ -247,7 +249,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate, GestureReco
         
         if self.foundSomething==false {
             self.scanningLabel.hidden=false
-            
+        
             let scanningSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("scanning", ofType: "mp3")!)
             do{
                 audioPlayer = try AVAudioPlayer(contentsOfURL:scanningSound)

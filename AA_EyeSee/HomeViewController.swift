@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Wallet")
+        let fetchRequest = NSFetchRequest(entityName: "Note")
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             wallet = results as! [NSManagedObject]
