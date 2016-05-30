@@ -22,7 +22,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
     var foundSomething = false
     var scanTimer : NSTimer!
     var audioPlayer: AVAudioPlayer!
-
+    let speechSynthesizer = AVSpeechSynthesizer()
     
     var notes = [Note]()
     
@@ -116,7 +116,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
     }
     
     @IBAction func onStopButtonPressed(sender: AnyObject) {
-        self.wrapper.stopCamera();
+self.beginScanning()
     }
     
     //handle swipe guestures
@@ -196,6 +196,12 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
         self.addValueLabel.hidden=false
         self.deductValueLabel.hidden=false
         self.rescanButtonOutlet.hidden=false
+        self.mainImageView.hidden=true
+        let speechString = "you found \(wrapper.moneyFound) Ring it"
+        let speechUtterance = AVSpeechUtterance(string: speechString)
+        
+        speechSynthesizer.speakUtterance(speechUtterance)
+        
         self.foundSomething=true
         if changeWalletMoney == true {
             
@@ -249,7 +255,7 @@ class CameraViewController: UIViewController, OpenCVWrapperDelegate {
         
         if self.foundSomething==false {
             self.scanningLabel.hidden=false
-        
+            
             let scanningSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("scanning", ofType: "mp3")!)
             do{
                 audioPlayer = try AVAudioPlayer(contentsOfURL:scanningSound)
