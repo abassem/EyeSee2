@@ -101,8 +101,10 @@
         [self checkImageWorks:capturedImage:money];
          }
     } else {
-        [self.delegate found];
-        [self stopCamera];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate found];
+            [self stopCamera];
+        });
         
     }
 }
@@ -338,6 +340,7 @@
             
             NSLog(@"%@",[money getName]);
             NSLog(@"%d",[money getValue]);
+            
             self.moneyFound =[money getValue];
             
         }
